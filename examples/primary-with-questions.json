@@ -1,0 +1,91 @@
+[
+  {
+    "id": "primary-school-quiz-001",
+    "level": "小学",
+    "title": "校园的一天",
+    "englishTitle": "A Day at School",
+    "description": "小学文章与题目导入示例",
+    "paragraphs": [
+      {
+        "en": "I read a book at school.",
+        "zh": "我在学校读一本书。",
+        "homophone": "艾 瑞德 额 布克 艾特 斯库尔。",
+        "image": ""
+      },
+      {
+        "en": "My bag is blue. I like my school.",
+        "zh": "我的书包是蓝色的。我喜欢我的学校。",
+        "homophone": "麦 拜格 伊兹 布鲁。艾 莱克 麦 斯库尔。",
+        "image": ""
+      }
+    ],
+    "words": [
+      {
+        "term": "school",
+        "meaning": "n. 学校",
+        "homophone": "斯库尔"
+      },
+      {
+        "term": "book",
+        "meaning": "n. 书",
+        "homophone": "布克",
+        "example": "I read a book at school."
+      },
+      {
+        "term": "blue",
+        "meaning": "adj. 蓝色的",
+        "homophone": "布鲁"
+      }
+    ],
+    "questions": [
+      {
+        "id": "where-read",
+        "type": "choice",
+        "scope": "paragraph",
+        "paragraph": 1,
+        "prompt": "Where do I read a book?",
+        "promptZh": "我在哪里读书？",
+        "options": [
+          "At school.",
+          "At home."
+        ],
+        "optionTranslations": [
+          "在学校。",
+          "在家。"
+        ],
+        "answer": "At school.",
+        "explanation": "第一段的 at school 表示“在学校”。"
+      },
+      {
+        "id": "bag-colour",
+        "type": "choice",
+        "scope": "article",
+        "prompt": "What colour is my bag?",
+        "promptZh": "我的书包是什么颜色的？",
+        "options": [
+          "Blue.",
+          "Red."
+        ],
+        "optionTranslations": [
+          "蓝色。",
+          "红色。"
+        ],
+        "answer": "Blue.",
+        "explanation": "第二段 My bag is blue. 说明书包是蓝色的。"
+      },
+      {
+        "id": "book-fill",
+        "type": "fill",
+        "scope": "word",
+        "word": "book",
+        "prompt": "I read a ___ at school.",
+        "promptZh": "我在学校读一本___。",
+        "answer": "book",
+        "acceptedAnswers": [
+          "storybook"
+        ],
+        "explanation": "read a book 意为“读一本书”。storybook（故事书）也是此题允许的表达。"
+      }
+    ]
+  }
+]

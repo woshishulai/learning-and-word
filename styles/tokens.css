@@ -1,0 +1,45 @@
+/* 全项目的颜色、间距、圆角、内容宽度与设备安全区。业务组件消费这些变量。 */
+page,
+.app-shell {
+	--ws-bg: #f7f8f2;
+	--ws-surface: #fff;
+	--ws-text: #203e32;
+	--ws-muted: #7a847a;
+	--ws-primary: #28543d;
+	--ws-border: #e3e8de;
+	--ws-space-1: 4px;
+	--ws-space-2: 8px;
+	--ws-space-3: 12px;
+	--ws-space-4: 16px;
+	--ws-space-5: 20px;
+	--ws-space-6: 24px;
+	--ws-radius: 12px;
+	--ws-panel-radius: 18px;
+	--ws-content-width: 1200px;
+	--ws-gutter: 40px;
+	--ws-safe-top: max(
+		var(--status-bar-height, 0px),
+		env(safe-area-inset-top, 0px)
+	);
+	--ws-safe-bottom: env(safe-area-inset-bottom, 0px);
+	--ws-safe-left: env(safe-area-inset-left, 0px);
+	--ws-safe-right: env(safe-area-inset-right, 0px);
+}
+@media (max-width: 600px) {
+	page,
+	.app-shell {
+		--ws-gutter: 18px;
+	}
+}
+@media (min-width: 601px) and (max-width: 900px) {
+	page,
+	.app-shell {
+		--ws-gutter: 25px;
+	}
+}
+@media (min-width: 1450px) {
+	page,
+	.app-shell {
+		--ws-content-width: 1280px;
+	}
+}

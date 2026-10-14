@@ -1,0 +1,38 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {emptyState,applyEvent} from '../modules/learning-core.js';
+process.env.UNI_CLOUD_PROVIDER=JSON.stringify([{provider:'alipay',spaceId:'env-00jy6y1rc1sw'}]);
+const cache=new Map();
+globalThis.uni={getStorageSync:k=>cache.get(k),setStorageSync:(k,v)=>cache.set(k,JSON.parse(JSON.stringify(v)))};
+let remote=emptyState(),calls=0,fail=false,release=null;
+globalThis.uniCloud={callFunction:async({data})=>{
+ if(data.action==='create')return {result:{ok:true,credentials:{studentId:'test'},state:structuredClone(remote)}};
+ if(data.action==='read')return {result:{ok:true,state:structuredClone(remote)}};
+ calls++;
+ if(fail)throw new Error('offline');
+ if(release)await new Promise(resolve=>{release=resolve});
+ assert.equal(data.revision,remote.revision);
+ remote=applyEvent(remote,data.event);
+ return {result:{ok:true,state:structuredClone(remote)}};
+}};
+const service=await import('../services/learning.js');
+test('instant local preferences coalesce, survive offline reload and serialize with learning writes',async()=>{
+ let s=await service.loadLearning();
+ service.savePreferences({...s.preferences,translation:true});
+ service.savePreferences({...s.preferences,translation:true,homophones:true});
+ assert.equal(calls,0);assert.equal(service.preferencesPending(),true);
+ s=await service.syncPreferences();assert.equal(calls,1);assert.equal(s.preferences.translation,true);assert.equal(s.preferences.homophones,true);
+ service.savePreferences({...s.preferences,english:false});fail=true;
+ await assert.rejects(service.syncPreferences());assert.equal(service.preferencesPending(),true);
+ s=await service.loadLearning();assert.equal(s.preferences.english,false);
+ fail=false;release=true;
+ const syncing=service.syncPreferences();
+ await new Promise(resolve=>setImmediate(resolve));
+ service.savePreferences({...s.preferences,english:true,images:false});
+ const learning=service.dispatchLearning(s,{type:'start',lessonIndex:0});
+ const finish=release;release=null;finish();
+ const synced=await syncing;assert.equal(synced.preferences.images,false);assert.equal(service.preferencesPending(),true);
+ s=await learning;assert.equal(s.active.stage,'read');assert.equal(s.preferences.images,false);
+ s=await service.syncPreferences();assert.equal(remote.preferences.images,false);assert.equal(service.preferencesPending(),false);
+ assert.equal(s.completed.length,0);
+});

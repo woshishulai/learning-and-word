@@ -1,0 +1,75 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "词境",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/library/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "文章书架",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/article/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "文章阅读",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/notebook/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "我的生词本",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/vocabulary/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "重点词库",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/review/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "复习中心",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/lesson/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "文章学习",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/article-study/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "逐段学习",
+				"disableScroll": true
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "词境",
+		"navigationBarBackgroundColor": "#f7f8f2",
+		"backgroundColor": "#f7f8f2"
+	},
+	"uniIdRouter": {}
+}

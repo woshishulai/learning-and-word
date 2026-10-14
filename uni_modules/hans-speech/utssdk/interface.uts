@@ -1,0 +1,151 @@
+/**
+ * hans-speech public API (uni-app x / UTS).
+ * Text-to-Speech (TTS) for uni-app x (native-only; no web implementation).
+ */
+
+export type NativeBoundaryEvent = {
+  charIndex: number
+  charLength: number
+}
+
+export type NativeBoundaryEventCallback = (ev: NativeBoundaryEvent) => void
+
+// "Default" | "Enhanced"
+export type VoiceQuality = string
+
+// #ifdef APP-IOS
+export interface Voice extends JSExport {
+  identifier: string
+  name: string
+  language: string
+  quality: VoiceQuality
+  toJSON(): Map<String, Any>
+}
+// #endif
+
+// #ifndef APP-IOS
+export interface Voice {
+  identifier: string
+  name: string
+  language: string
+  quality: VoiceQuality
+}
+// #endif
+
+// #ifdef APP-IOS
+export interface TtsEngineInfo extends JSExport {
+  name: string
+  label: string
+  icon?: string
+  toJSON(): Map<String, Any>
+}
+// #endif
+
+// #ifndef APP-IOS
+export interface TtsEngineInfo {
+  name: string
+  label: string
+  icon?: string
+}
+// #endif
+
+// Audio focus mode: 'duck' | 'pauseOthers' | 'mix' | 'none'
+export type AudioFocusMode = string
+
+export type SpeechOptions = {
+  language?: string
+  pitch?: number
+  rate?: number
+  voice?: string
+  /**
+   * Volume of speech. A number between 0.0 (silent) and 1.0 (loudest). Default is 1.0.
+   */
+  volume?: number
+  useApplicationAudioSession?: boolean
+
+  /**
+   * Audio focus mode: 'duck' | 'pauseOthers' | 'mix' | 'none'. Default is 'duck'.
+   */
+  audioFocusMode?: AudioFocusMode
+
+  /**
+   * Whether to automatically chunk long text into smaller sentences to avoid platform length limits. Default is true.
+   */
+  autoChunk?: boolean
+
+  onStart?: () => void
+  onStopped?: () => void
+  onDone?: () => void
+  onError?: (error: Error) => void
+  onBoundary?: NativeBoundaryEventCallback | null
+}
+
+export type SynthesizeToFileOptions = {
+  language?: string
+  pitch?: number
+  rate?: number
+  voice?: string
+  volume?: number
+  targetFilePath?: string
+}
+
+// Keep this as `number` instead of a literal-union to avoid platform transpile issues.
+export type HansSpeechErrorCode = number
+
+export interface HansSpeechError extends IUniError {
+  errCode: HansSpeechErrorCode
+}
+
+export type Speak = (text: string, options?: SpeechOptions) => void
+export type GetAvailableVoicesAsync = () => Promise<Array<Voice>>
+export type IsSpeakingAsync = () => Promise<boolean>
+export type Stop = () => Promise<void>
+export type Pause = () => Promise<void>
+export type Resume = () => Promise<void>
+export type SynthesizeToFileAsync = (text: string, options?: SynthesizeToFileOptions) => Promise<string>
+
+/**
+ * Returns current `maxSpeechInputLength` value.
+ * Kept for compatibility with some bundling/import edge-cases.
+ */
+export type GetMaxSpeechInputLength = () => number
+
+/**
+ * Plugin internal logger toggle (default enabled).
+ */
+export type SetLogEnabled = (enabled: boolean) => void
+
+/**
+ * Returns current logger toggle state.
+ */
+export type IsLogEnabled = () => boolean
+
+/**
+ * Returns list of available TTS engines on device (primarily for Android).
+ */
+export type GetEnginesAsync = () => Promise<Array<TtsEngineInfo>>
+
+/**
+ * Checks whether at least one TTS engine is installed and available.
+ */
+export type IsEngineAvailableAsync = () => Promise<boolean>
+
+/**
+ * Opens system TTS settings screen (primarily Android).
+ */
+export type OpenTtsSettings = () => void
+
+export declare const speak: Speak
+export declare const getAvailableVoicesAsync: GetAvailableVoicesAsync
+export declare const isSpeakingAsync: IsSpeakingAsync
+export declare const stop: Stop
+export declare const pause: Pause
+export declare const resume: Resume
+export declare const synthesizeToFileAsync: SynthesizeToFileAsync
+export declare const maxSpeechInputLength: number
+export declare const getMaxSpeechInputLength: GetMaxSpeechInputLength
+export declare const setLogEnabled: SetLogEnabled
+export declare const isLogEnabled: IsLogEnabled
+export declare const getEnginesAsync: GetEnginesAsync
+export declare const isEngineAvailableAsync: IsEngineAvailableAsync
+export declare const openTtsSettings: OpenTtsSettings

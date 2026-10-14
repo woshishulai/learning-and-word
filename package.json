@@ -1,0 +1,29 @@
+{
+	"name": "wordscape-learning",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"prepare:assets": "node scripts/prepare-assets.mjs",
+		"dev:h5": "node scripts/uni.mjs dev",
+		"build:h5": "node scripts/uni.mjs build",
+		"build:mp-weixin": "node scripts/uni.mjs build mp-weixin",
+		"build:cloud": "node scripts/build-cloud.mjs",
+		"test": "node --test tests/*.test.mjs"
+	},
+	"dependencies": {
+		"@dcloudio/uni-app": "3.0.0-alpha-5030120260930001",
+		"@dcloudio/uni-components": "3.0.0-alpha-5030120260930001",
+		"@dcloudio/uni-h5": "3.0.0-alpha-5030120260930001",
+		"@dcloudio/uni-mp-weixin": "3.0.0-alpha-5030120260930001",
+		"vue": "3.4.21"
+	},
+	"devDependencies": {
+		"@dcloudio/types": "3.4.31",
+		"@dcloudio/vite-plugin-uni": "3.0.0-alpha-5030120260930001",
+		"esbuild": "0.20.2",
+		"sass": "1.77.8",
+		"sharp": "^0.35.5",
+		"vite": "5.2.8"
+	}
+}

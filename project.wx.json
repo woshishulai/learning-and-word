@@ -1,0 +1,16 @@
+{
+	"description": "词境 · 在故事里学英语",
+	"projectname": "wordscape-learning",
+	"compileType": "miniprogram",
+	"miniprogramRoot": "./",
+	"appid": "touristappid",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true
+	},
+	"packOptions": {
+		"ignore": [{ "type": "folder", "value": "static/img/document1" }]
+	}
+}

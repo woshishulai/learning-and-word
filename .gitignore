@@ -1,0 +1,20 @@
+unpackage/
+.DS_Store
+.hbuilderx/
+node_modules/
+.env.local
+
+# Local secrets, editor artifacts and temporary build files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+vite.config.*.timestamp-*.mjs
+*.log
+# Local cloud smoke helper (never deploy)
+uniCloud-alipay/cloudfunctions/learning-smoke-local/
