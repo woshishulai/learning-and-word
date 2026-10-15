@@ -63,6 +63,14 @@
 				"navigationBarTitleText": "逐段学习",
 				"disableScroll": true
 			}
+		},
+		{
+			"path": "pages/sentence-training/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "句子训练",
+				"disableScroll": true
+			}
 		}
 	],
 	"globalStyle": {

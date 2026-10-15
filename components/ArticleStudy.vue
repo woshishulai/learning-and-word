@@ -1,5 +1,11 @@
 <template>
-	<view>
+	<ParagraphReview
+		:article="article"
+		:preferences="preferences"
+		@word="$emit('word', $event)"
+		@preferences="$emit('preferences', $event)"
+		@inspect="assisted = true"
+	>
 		<view v-if="progress?.finished" class="panel"
 			><text class="headline">本篇学习完成</text
 			><text class="description"
@@ -70,14 +76,15 @@
 				@answer="answer"
 				@next="act('next')"
 			/> </template
-	></view>
+	></ParagraphReview>
 </template>
 <script>
 import { articlePlan, wrongQuestionIds } from "../modules/article-study.js";
+import ParagraphReview from "./ParagraphReview.vue";
 import FullArticleReader from "./FullArticleReader.vue";
 import QuestionCard from "./QuestionCard.vue";
 export default {
-	components: { FullArticleReader, QuestionCard },
+	components: { FullArticleReader, QuestionCard, ParagraphReview },
 	props: ["article", "progress", "preferences", "busy"],
 	emits: ["event", "word", "preferences", "notebook", "back"],
 	data() {

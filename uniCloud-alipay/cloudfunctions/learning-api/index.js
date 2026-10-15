@@ -790,7 +790,42 @@ function cleanEntry(value) {
     level: ["\u5C0F\u5B66", "\u521D\u4E2D", "\u9AD8\u4E2D"].includes(value.level) ? value.level : "\u9AD8\u4E2D"
   };
 }
-function notebookQuestion(word) {
+function shuffled(values, random = Math.random) {
+  const result = [...values];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+function notebookQuestion(word, mode = "spelling", pool = []) {
+  if (mode === "choice") {
+    const alternatives = [
+      ...new Set(
+        pool.filter(
+          (w) => normalize(w.term) !== normalize(word.term) && w.meaning !== word.meaning
+        ).map((w) => w.meaning).filter(Boolean)
+      )
+    ];
+    if (!alternatives.length)
+      throw new Error("\u53EF\u7528\u8BCD\u4E49\u4E0D\u8DB3\uFF0C\u8BF7\u5148\u4F7F\u7528\u968F\u673A\u9ED8\u5199");
+    return {
+      id: word.id + "-notebook-choice",
+      wordId: word.id,
+      kind: "review",
+      prompt: "\u9009\u62E9\u8FD9\u4E2A\u8BCD\u7684\u4E2D\u6587\u8BCD\u4E49\uFF1A" + word.term,
+      answer: word.meaning,
+      options: shuffled([
+        word.meaning,
+        ...shuffled(alternatives).slice(0, 3)
+      ]),
+      explanation: [
+        word.term + "\uFF1A" + word.meaning,
+        word.example,
+        word.mnemonic
+      ].filter(Boolean).join(" \xB7 ")
+    };
+  }
   return {
     id: word.id + "-notebook",
     wordId: word.id,
@@ -1037,11 +1072,12 @@ function applyEvent(previous, event, now = Date.now(), article = null) {
     case "answer": {
       const q = currentQuestion(s);
       assert(q && !a.feedback, "\u8FD9\u9053\u9898\u5DF2\u63D0\u4EA4\u6216\u4E0D\u53EF\u4F5C\u7B54");
-      const answer = String(event.answer || "").slice(0, 150);
+      const answer = String(event.answer || "").slice(0, 300);
       assert(normalizeAnswer(answer) || event.skip, "\u8BF7\u5148\u586B\u5199\u7B54\u6848");
       const correct = !event.skip && normalizeAnswer(answer) === normalizeAnswer(q.answer);
       a.feedback = {
         questionId: q.id,
+        assisted: !!event.assisted,
         answer,
         correct,
         skipped: !!event.skip,
@@ -1053,8 +1089,16 @@ function applyEvent(previous, event, now = Date.now(), article = null) {
         wordId: q.wordId || null,
         kind: q.kind || "understand"
       });
-      if (q.wordId && (q.kind === "transfer" || a.kind === "review" && !a.drill))
-        recordAnswer(s, q.wordId, correct, now, a.kind === "review");
+      if (q.wordId && (q.kind === "transfer" || a.kind === "review" && !a.drill)) {
+        if (!correct || !event.assisted)
+          recordAnswer(
+            s,
+            q.wordId,
+            correct,
+            now,
+            a.kind === "review"
+          );
+      }
       break;
     }
     case "next": {
@@ -1113,6 +1157,17 @@ function applyEvent(previous, event, now = Date.now(), article = null) {
       if (event.weakOnly && s.lastResult)
         ids = ids.filter((id) => s.lastResult.weakIds.includes(id));
       assert(ids.length, "\u6682\u65F6\u6CA1\u6709\u53EF\u590D\u4E60\u7684\u8BCD");
+      const notebookMode = event.notebookIds ? event.notebookMode || "spelling" : null;
+      assert(
+        !notebookMode || ["spelling", "choice"].includes(notebookMode),
+        "\u65E0\u6548\u7EC3\u4E60\u6A21\u5F0F"
+      );
+      if (notebookMode)
+        ids = shuffled(ids);
+      const pool = [
+        ...Object.values(dictionary),
+        ...Object.values(s.notebook)
+      ];
       s.active = {
         kind: "review",
         stage: "practice",
@@ -1120,8 +1175,9 @@ function applyEvent(previous, event, now = Date.now(), article = null) {
         feedback: null,
         answers: [],
         drill: !!event.drill,
+        notebookMode,
         questions: ids.map(
-          (id) => words[id] && !event.notebookIds ? reviewQuestion(id, s.records[id].level) : notebookQuestion(getWord(s, id))
+          (id) => words[id] && !event.notebookIds ? reviewQuestion(id, s.records[id].level) : notebookQuestion(getWord(s, id), notebookMode, pool)
         ),
         startedAt: now
       };

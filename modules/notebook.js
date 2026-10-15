@@ -105,7 +105,49 @@ export function cleanEntry(value) {
 			: "高中",
 	};
 }
-export function notebookQuestion(word) {
+export function shuffled(values, random = Math.random) {
+	const result = [...values];
+	for (let i = result.length - 1; i > 0; i--) {
+		const j = Math.floor(random() * (i + 1));
+		[result[i], result[j]] = [result[j], result[i]];
+	}
+	return result;
+}
+export function notebookQuestion(word, mode = "spelling", pool = []) {
+	if (mode === "choice") {
+		const alternatives = [
+			...new Set(
+				pool
+					.filter(
+						(w) =>
+							normalize(w.term) !== normalize(word.term) &&
+							w.meaning !== word.meaning,
+					)
+					.map((w) => w.meaning)
+					.filter(Boolean),
+			),
+		];
+		if (!alternatives.length)
+			throw new Error("可用词义不足，请先使用随机默写");
+		return {
+			id: word.id + "-notebook-choice",
+			wordId: word.id,
+			kind: "review",
+			prompt: "选择这个词的中文词义：" + word.term,
+			answer: word.meaning,
+			options: shuffled([
+				word.meaning,
+				...shuffled(alternatives).slice(0, 3),
+			]),
+			explanation: [
+				word.term + "：" + word.meaning,
+				word.example,
+				word.mnemonic,
+			]
+				.filter(Boolean)
+				.join(" · "),
+		};
+	}
 	return {
 		id: word.id + "-notebook",
 		wordId: word.id,

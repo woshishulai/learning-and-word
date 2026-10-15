@@ -10,6 +10,7 @@
 			@save="saveNotebook"
 			@remove="send({ type: 'notebookRemove', wordId: $event })"
 			@review="reviewNotebook"
+			@sentences="navigate('sentenceTraining', $event)"
 	/></LearningLayout>
 </template>
 <script>

@@ -50,18 +50,22 @@
 				>
 					手动添加生词</button
 				><button
+					v-for="mode in [
+						{ id: 'spelling', label: '随机默写' },
+						{ id: 'choice', label: '词义选择' },
+					]"
+					:key="mode.id"
 					role="button"
-					tabindex="0"
 					class="btn secondary"
 					:disabled="!filtered.length || busy"
 					@click="
-						$emit(
-							'review',
-							filtered.map((w) => w.id),
-						)
+						$emit('review', {
+							ids: filtered.map((w) => w.id),
+							mode: mode.id,
+						})
 					"
 				>
-					练习当前生词</button
+					{{ mode.label }}</button
 				><button
 					v-for="format in ['csv', 'txt', 'json']"
 					:key="format"
@@ -73,6 +77,13 @@
 				>
 					导出 {{ format.toUpperCase() }}
 				</button></view
+			><button
+				role="button"
+				class="btn secondary"
+				:disabled="!filtered.some((w) => w.example)"
+				@click="$emit('sentences', { level, article, search: query })"
+			>
+				例句训练</button
 			><text class="muted small"
 				>当前 {{ filtered.length }} 个词 · 导出遵循当前筛选</text
 			></view
@@ -194,7 +205,7 @@ export default {
 		"saveRevision",
 		"catalog",
 	],
-	emits: ["save", "remove", "review"],
+	emits: ["save", "remove", "review", "sentences"],
 	data() {
 		return {
 			level: "全部",

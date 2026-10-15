@@ -18,7 +18,7 @@
 						:key="i"
 						class="scene-dot"
 						:class="{ selected: scene === i }"
-						:aria-label="'查看第' + (i + 1) + '幅配图'"
+						:aria-label="'查看第' + (i + 1) + '段'"
 						@click="scene = i" /></view></view
 			><text class="scene-prompt">{{ lesson.prompt }}</text
 			><text class="muted small"
@@ -28,6 +28,19 @@
 		<view class="reading-paper"
 			><view class="section-line"
 				><text class="section-title">{{ lesson.title }}</text></view
+			>
+			<view class="action-row"
+				><button
+					v-for="(_, i) in lesson.paragraphs"
+					:key="i"
+					role="button"
+					class="chip"
+					:class="{ selected: scene === i }"
+					:aria-pressed="scene === i"
+					@click="scene = i"
+				>
+					第 {{ i + 1 }} 段
+				</button></view
 			>
 			<view
 				v-for="(p, i) in lesson.paragraphs"

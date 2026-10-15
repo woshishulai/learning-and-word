@@ -1,4 +1,5 @@
 export const routes = {
+	sentenceTraining: "pages/sentence-training/index",
 	home: "pages/index/index",
 	library: "pages/library/index",
 	article: "pages/article/index",
@@ -23,7 +24,14 @@ export function navigationTarget(pages, view, query = {}) {
 		const page = pages[i];
 		if (
 			page.route === route &&
-			(!["article", "articleStudy"].includes(view) ||
+			(view !== "sentenceTraining" ||
+				["level", "article", "search"].every(
+					(k) =>
+						String(
+							page.options?.[k] || page.$page?.options?.[k] || "",
+						) === String(query[k] || ""),
+				)) &&
+			(!["article", "articleStudy", "sentenceTraining"].includes(view) ||
 				String(page.options?.id || page.$page?.options?.id || "") ===
 					String(query.id || ""))
 		) {

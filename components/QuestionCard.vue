@@ -15,11 +15,24 @@
 				: "用学过的词或短语填空，试着自己想起来。"
 		}}</text>
 		<view class="question-prompt"
+			><text v-if="reviewMode && !hintsOpen && !feedback">{{
+				question.prompt
+			}}</text
 			><InteractiveEnglish
+				v-else
 				:text="question.prompt"
-				@word="$emit('word', $event)"
+				@word="wordHint($event)"
 		/></view>
-		<view class="action-row"
+		<button
+			v-if="reviewMode && !feedback"
+			role="button"
+			class="text-btn"
+			@click="hintsOpen = !hintsOpen"
+		>
+			{{ hintsOpen ? "收起学习提示" : "学习提示（翻译 / 查词）" }}</button
+		><text v-if="reviewMode && hintUsed" class="muted small"
+			>本题已使用提示，不计为独立掌握。</text
+		><view v-if="!reviewMode || hintsOpen || feedback" class="action-row"
 			><button
 				class="text-btn"
 				role="button"
@@ -53,10 +66,12 @@
 				停止朗读
 			</button></view
 		>
-		<text v-if="showTranslation" class="translation">{{
-			translate(question.prompt) || "这道题暂未提供中文翻译"
-		}}</text>
-		<text class="muted small"
+		<text
+			v-if="showTranslation && (!reviewMode || hintsOpen || feedback)"
+			class="translation"
+			>{{ translate(question.prompt) || "这道题暂未提供中文翻译" }}</text
+		>
+		<text v-if="!reviewMode || hintsOpen || feedback" class="muted small"
 			>点英文词可发音、收藏；点选项左侧字母选择答案。</text
 		>
 		<view v-if="question.options" class="options">
@@ -87,12 +102,21 @@
 					}}</text>
 				</button>
 				<view class="option-copy"
+					><text v-if="reviewMode && !hintsOpen && !feedback">{{
+						option
+					}}</text
 					><InteractiveEnglish
+						v-else
 						:text="option"
-						@word="$emit('word', $event)"
-					/><text v-if="showTranslation" class="translation">{{
-						translate(option) || "暂未收录翻译"
-					}}</text></view
+						@word="wordHint($event)"
+					/><text
+						v-if="
+							showTranslation &&
+							(!reviewMode || hintsOpen || feedback)
+						"
+						class="translation"
+						>{{ translate(option) || "暂未收录翻译" }}</text
+					></view
 				>
 				<AppIcon
 					v-if="feedback && option === feedback.expected"
@@ -177,27 +201,39 @@ export default {
 		"busy",
 		"preferences",
 		"nextLabel",
+		"reviewMode",
 	],
 	emits: ["answer", "next", "word", "assist"],
 	data() {
 		return {
 			speech: speechState,
 			choice: this.feedback?.answer || "",
-			showTranslation: !!this.preferences?.translation,
+			showTranslation:
+				!this.reviewMode && !!this.preferences?.translation,
+			hintsOpen: false,
+			hintUsed: false,
 		};
 	},
 	watch: {
 		"preferences.translation"(value) {
-			this.showTranslation = !!value;
+			if (!this.reviewMode) this.showTranslation = !!value;
 		},
 		"question.id"() {
 			this.choice = this.feedback?.answer || "";
+			this.hintUsed = false;
+			this.hintsOpen = false;
+			if (this.reviewMode) this.showTranslation = false;
 		},
 		feedback(v) {
 			if (v) this.choice = v.answer;
 		},
 	},
 	methods: {
+		wordHint(value) {
+			this.hintUsed = true;
+			this.$emit("assist");
+			this.$emit("word", value);
+		},
 		translate(text) {
 			if (text === this.question.prompt && this.question.promptZh)
 				return this.question.promptZh;
@@ -208,11 +244,15 @@ export default {
 		},
 		toggleTranslation() {
 			this.showTranslation = !this.showTranslation;
-			if (this.showTranslation) this.$emit("assist");
+			if (this.showTranslation) {
+				this.hintUsed = true;
+				this.$emit("assist");
+			}
 		},
 		read: speak,
 		stop: stopSpeech,
 		readTranslation() {
+			this.hintUsed = true;
 			this.$emit("assist");
 			const lines = [
 				this.translate(this.question.prompt),
@@ -231,7 +271,7 @@ export default {
 			this.$emit("answer", {
 				answer: this.choice,
 				skip,
-				assisted: this.showTranslation,
+				assisted: this.showTranslation || this.hintUsed,
 			});
 		},
 	},

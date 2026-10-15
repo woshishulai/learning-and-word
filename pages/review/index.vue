@@ -4,7 +4,7 @@
 			<view class="page-heading"
 				><text class="headline">让记忆，再深一点。</text
 				><text class="subtitle"
-					>离开原文，也能把单词想起来。</text
+					>到期复习检查记忆，自由练习随时巩固。</text
 				></view
 			>
 			<view class="review-page"
@@ -18,16 +18,11 @@
 				}}</text
 				><text class="description">{{
 					dueIds.length
-						? "用新的句子回忆，答完即可看到解释。"
+						? "默认不展示学习提示，答完再看解释。独立答对才调整下次复习时间。"
 						: seenCount
 							? "学过的词已安排复习。你也可以先自由练习。"
 							: "先完成第一个情节，复习会在这里自动安排。"
 				}}</text>
-				<view class="review-preview"
-					><text v-for="id in dueIds.slice(0, 8)" :key="id">{{
-						words[id].term
-					}}</text></view
-				>
 				<button
 					role="button"
 					tabindex="0"

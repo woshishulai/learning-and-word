@@ -1,5 +1,12 @@
 <template>
 	<LearningLayout ref="layout" :model="pageModel"
+		><button
+			v-if="readingArticle"
+			role="button"
+			class="text-btn"
+			@click="navigate('sentenceTraining', { id: articleId })"
+		>
+			句子训练：跟读 / 组句 / 默写</button
 		><FullArticleReader
 			v-if="readingArticle"
 			:article="readingArticle"

@@ -5,7 +5,7 @@ const home = { route: routes.home },
 	library = { route: routes.library },
 	lesson = { route: routes.lesson };
 test("each section has its own route and returns to its actual existing ancestor", () => {
-	assert.equal(new Set(Object.values(routes)).size, 8);
+	assert.equal(new Set(Object.values(routes)).size, 9);
 	assert.deepEqual(navigationTarget([home, library, lesson], "library"), {
 		kind: "back",
 		delta: 1,

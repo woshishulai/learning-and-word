@@ -4,6 +4,7 @@ import {
 	getWord,
 	cleanEntry,
 	notebookQuestion,
+	shuffled,
 	dictionary,
 } from "./notebook.js";
 import { cleanPreferences } from "./learning-aids.js";
@@ -152,7 +153,7 @@ export function applyEvent(previous, event, now = Date.now(), article = null) {
 				if (event.articleId === course.id) {
 					s.completed = [];
 					if (s.active?.kind === "lesson") s.active = null;
-					if(s.lastResult?.kind === "lesson") s.lastResult = null;
+					if (s.lastResult?.kind === "lesson") s.lastResult = null;
 				} else if (s.articleProgress)
 					delete s.articleProgress[event.articleId];
 			}
@@ -269,13 +270,14 @@ export function applyEvent(previous, event, now = Date.now(), article = null) {
 		case "answer": {
 			const q = currentQuestion(s);
 			assert(q && !a.feedback, "这道题已提交或不可作答");
-			const answer = String(event.answer || "").slice(0, 150);
+			const answer = String(event.answer || "").slice(0, 300);
 			assert(normalizeAnswer(answer) || event.skip, "请先填写答案");
 			const correct =
 				!event.skip &&
 				normalizeAnswer(answer) === normalizeAnswer(q.answer);
 			a.feedback = {
 				questionId: q.id,
+				assisted: !!event.assisted,
 				answer,
 				correct,
 				skipped: !!event.skip,
@@ -291,7 +293,14 @@ export function applyEvent(previous, event, now = Date.now(), article = null) {
 				q.wordId &&
 				(q.kind === "transfer" || (a.kind === "review" && !a.drill))
 			)
-				recordAnswer(s, q.wordId, correct, now, a.kind === "review");
+				if (!correct || !event.assisted)
+					recordAnswer(
+						s,
+						q.wordId,
+						correct,
+						now,
+						a.kind === "review",
+					);
 			break;
 		}
 		case "next": {
@@ -364,6 +373,18 @@ export function applyEvent(previous, event, now = Date.now(), article = null) {
 			if (event.weakOnly && s.lastResult)
 				ids = ids.filter((id) => s.lastResult.weakIds.includes(id));
 			assert(ids.length, "暂时没有可复习的词");
+			const notebookMode = event.notebookIds
+				? event.notebookMode || "spelling"
+				: null;
+			assert(
+				!notebookMode || ["spelling", "choice"].includes(notebookMode),
+				"无效练习模式",
+			);
+			if (notebookMode) ids = shuffled(ids);
+			const pool = [
+				...Object.values(dictionary),
+				...Object.values(s.notebook),
+			];
 			s.active = {
 				kind: "review",
 				stage: "practice",
@@ -371,10 +392,11 @@ export function applyEvent(previous, event, now = Date.now(), article = null) {
 				feedback: null,
 				answers: [],
 				drill: !!event.drill,
+				notebookMode,
 				questions: ids.map((id) =>
 					words[id] && !event.notebookIds
 						? reviewQuestion(id, s.records[id].level)
-						: notebookQuestion(getWord(s, id)),
+						: notebookQuestion(getWord(s, id), notebookMode, pool),
 				),
 				startedAt: now,
 			};

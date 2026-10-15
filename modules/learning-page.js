@@ -136,6 +136,7 @@ export default {
 				library: "文章书架",
 				article: this.readingArticle?.title || "文章阅读",
 				articleStudy: "逐段学习",
+				sentenceTraining: "句子训练",
 				notebook: "我的生词本",
 				vocabulary: "重点词库",
 				review: "复习中心",
@@ -458,7 +459,9 @@ export default {
 					await initializing;
 				}
 				if (
-					["article", "articleStudy"].includes(this.view) &&
+					["article", "articleStudy", "sentenceTraining"].includes(
+						this.view,
+					) &&
 					this.articleId &&
 					!this.readingArticle
 				)
@@ -574,7 +577,21 @@ export default {
 				this.navigate("lesson");
 				return;
 			}
-			if (await this.send({ type: "review", drill, weakOnly }))
+			if (
+				await this.send({
+					type: "review",
+					drill,
+					weakOnly,
+					...(weakOnly && this.active?.notebookMode
+						? {
+								notebookMode: this.active.notebookMode,
+								notebookIds: this.active.questions.map(
+									(q) => q.wordId,
+								),
+							}
+						: {}),
+				})
+			)
 				this.navigate("lesson");
 		},
 		async openWord(value) {
@@ -661,13 +678,14 @@ export default {
 			if (await this.send({ type: "notebookAdd", entry }))
 				this.notebookSaveRevision++;
 		},
-		async reviewNotebook(ids) {
+		async reviewNotebook({ ids, mode }) {
 			if (!(await this.confirmSwitch())) return;
 			if (
 				await this.send({
 					type: "review",
 					drill: true,
 					notebookIds: ids,
+					notebookMode: mode,
 				})
 			)
 				this.navigate("lesson");
