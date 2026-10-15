@@ -1,0 +1,2838 @@
+{
+  "articles": [
+    {
+      "id": "teenager-english-v1",
+      "title": "少年与英语",
+      "englishTitle": "A New Beginning",
+      "description": "一个准备离家的少年，一次改变他的谈话。",
+      "cover": "assets/images/1.jpg",
+      "level": "高中",
+      "lessons": [
+        {
+          "id": "departure",
+          "title": "离家前的决定",
+          "subtitle": "A suitcase full of worries",
+          "image": "assets/images/1.jpg",
+          "prompt": "一个少年正在收拾行李。是什么让他决定离开？",
+          "paragraphs": [
+            {
+              "en": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase.",
+              "zh": "一个少年躲在松垮、积满灰尘的窗帘后，把大衣装进行李箱。",
+              "image": "assets/images/1.jpg"
+            },
+            {
+              "en": "He planned to leave home at dusk, even though there was thunder and lightning outside.",
+              "zh": "他计划在黄昏时离家，尽管外面雷电交加。",
+              "image": "assets/images/2.jpg"
+            },
+            {
+              "en": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer.",
+              "zh": "他觉得自己必须这样做，因为他已经厌烦父母对英语学习的唠叨，再也无法忍受了。",
+              "image": "assets/images/3.jpg"
+            }
+          ],
+          "wordIds": [
+            "dusty",
+            "curtain",
+            "pack",
+            "suitcase",
+            "dusk",
+            "bear"
+          ],
+          "questions": [
+            {
+              "id": "d-1",
+              "prompt": "When did the teenager plan to leave?",
+              "options": [
+                "At sunrise.",
+                "At dusk.",
+                "At midnight."
+              ],
+              "answer": "At dusk.",
+              "explanation": "at dusk 意为“在黄昏时”。留意 planned to：这是他的计划，文章还没有说他已经离开。",
+              "promptZh": "少年计划什么时候离开？",
+              "optionTranslations": [
+                "日出时。",
+                "黄昏时。",
+                "午夜时。"
+              ]
+            },
+            {
+              "id": "d-2",
+              "prompt": "Why did he want to leave home?",
+              "options": [
+                "He wanted to buy a coat.",
+                "He enjoyed the storm.",
+                "He could no longer bear the nagging."
+              ],
+              "answer": "He could no longer bear the nagging.",
+              "explanation": "fed up with 和 couldn’t bear … any longer 都表达了他对唠叨的厌烦与难以忍受。",
+              "promptZh": "他为什么想离家？",
+              "optionTranslations": [
+                "他想买一件外套。",
+                "他喜欢暴风雨。",
+                "他再也无法忍受唠叨。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "id": "dusty-context",
+              "wordId": "dusty",
+              "kind": "context",
+              "prompt": "He hid behind loose, ___ curtains.",
+              "options": [
+                "dusty",
+                "grateful",
+                "calm"
+              ],
+              "answer": "dusty",
+              "explanation": "dust（灰尘）＋ -y → dusty，表示“布满灰尘的”。",
+              "promptZh": "他躲在松垮、___的窗帘后。",
+              "optionTranslations": [
+                "adj. 积满灰尘的",
+                "adj. 感激的",
+                "v. 使平静"
+              ]
+            },
+            {
+              "id": "curtain-context",
+              "wordId": "curtain",
+              "kind": "context",
+              "prompt": "He hid behind loose, dusty ___.",
+              "options": [
+                "methods",
+                "curtains",
+                "tips"
+              ],
+              "answer": "curtains",
+              "explanation": "文中 curtains 用复数，指窗帘。填空时留意单复数。",
+              "promptZh": "他躲在松垮、积满灰尘的___后。",
+              "optionTranslations": [
+                "n. 方法",
+                "n. 窗帘",
+                "建议；窍门"
+              ]
+            },
+            {
+              "id": "pack-context",
+              "wordId": "pack",
+              "kind": "context",
+              "prompt": "He was ___ his overcoat into a suitcase.",
+              "options": [
+                "ignoring",
+                "packing",
+                "recovering"
+              ],
+              "answer": "packing",
+              "explanation": "文中的 packing 表示与 hid 同时发生的动作；need to 后接原形 pack。",
+              "promptZh": "他正在把大衣___进行李箱。",
+              "optionTranslations": [
+                "忽视（进行中）",
+                "v. 打包；收拾（行李）",
+                "恢复（进行中）"
+              ]
+            },
+            {
+              "id": "suitcase-context",
+              "wordId": "suitcase",
+              "kind": "context",
+              "prompt": "He packed his overcoat into a ___.",
+              "options": [
+                "curtain",
+                "series",
+                "suitcase"
+              ],
+              "answer": "suitcase",
+              "explanation": "用“衣物放进旅行用的箱子”这一场景理解 suitcase。",
+              "promptZh": "他把大衣装进一个___。",
+              "optionTranslations": [
+                "n. 窗帘",
+                "n. 一系列；一连串",
+                "n. 行李箱"
+              ]
+            },
+            {
+              "id": "dusk-context",
+              "wordId": "dusk",
+              "kind": "context",
+              "prompt": "He planned to leave home at ___.",
+              "options": [
+                "dusk",
+                "strength",
+                "home"
+              ],
+              "answer": "dusk",
+              "explanation": "dusk 是日落后天色渐暗的时候；固定搭配 at dusk。",
+              "promptZh": "他计划在___离家。",
+              "optionTranslations": [
+                "n. 黄昏",
+                "n. 力量；意志力",
+                "家"
+              ]
+            },
+            {
+              "id": "bear-context",
+              "wordId": "bear",
+              "kind": "context",
+              "prompt": "He couldn’t ___ it any longer.",
+              "options": [
+                "pack",
+                "bear",
+                "gain"
+              ],
+              "answer": "bear",
+              "explanation": "这里 bear 是动词“忍受”，不是名词“熊”。couldn’t 后用原形。",
+              "promptZh": "他再也无法___这件事了。",
+              "optionTranslations": [
+                "v. 打包；收拾（行李）",
+                "v. 忍受；承受",
+                "v. 获得"
+              ]
+            },
+            {
+              "id": "dusty-transfer",
+              "wordId": "dusty",
+              "kind": "transfer",
+              "prompt": "The old books were covered in dust. They were ___.",
+              "answer": "dusty",
+              "explanation": "dust（灰尘）＋ -y → dusty，表示“布满灰尘的”。",
+              "promptZh": "旧书上盖满了灰尘。它们___。",
+              "optionTranslations": []
+            },
+            {
+              "id": "curtain-transfer",
+              "wordId": "curtain",
+              "kind": "transfer",
+              "prompt": "Please close the ___ to keep the light out.",
+              "answer": "curtains",
+              "explanation": "文中 curtains 用复数，指窗帘。填空时留意单复数。",
+              "promptZh": "请拉上___，挡住光线。",
+              "optionTranslations": []
+            },
+            {
+              "id": "pack-transfer",
+              "wordId": "pack",
+              "kind": "transfer",
+              "prompt": "We need to ___ our bags before the trip.",
+              "answer": "pack",
+              "explanation": "文中的 packing 表示与 hid 同时发生的动作；need to 后接原形 pack。",
+              "promptZh": "旅行前，我们需要___行李。",
+              "optionTranslations": []
+            },
+            {
+              "id": "suitcase-transfer",
+              "wordId": "suitcase",
+              "kind": "transfer",
+              "prompt": "She put her clothes in a ___ for the holiday.",
+              "answer": "suitcase",
+              "explanation": "用“衣物放进旅行用的箱子”这一场景理解 suitcase。",
+              "promptZh": "她把度假要穿的衣服放进一个___。",
+              "optionTranslations": []
+            },
+            {
+              "id": "dusk-transfer",
+              "wordId": "dusk",
+              "kind": "transfer",
+              "prompt": "The sun was setting. We arrived at ___.",
+              "answer": "dusk",
+              "explanation": "dusk 是日落后天色渐暗的时候；固定搭配 at dusk。",
+              "promptZh": "太阳正在落山。我们在___到达。",
+              "optionTranslations": []
+            },
+            {
+              "id": "bear-transfer",
+              "wordId": "bear",
+              "kind": "transfer",
+              "prompt": "The noise is so loud that I cannot ___ it.",
+              "answer": "bear",
+              "explanation": "这里 bear 是动词“忍受”，不是名词“熊”。couldn’t 后用原形。",
+              "promptZh": "噪声太大，我无法___。",
+              "optionTranslations": []
+            }
+          ]
+        },
+        {
+          "id": "friend",
+          "title": "朋友的倾听",
+          "subtitle": "Someone who understands",
+          "image": "assets/images/5.jpg",
+          "prompt": "朋友理解他的处境，却不赞成他的决定。她会怎样帮助他？",
+          "paragraphs": [
+            {
+              "en": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him.",
+              "zh": "他不擅长英语，也不喜欢上英语课，因为他觉得老师忽视了他。",
+              "image": "assets/images/4.jpg"
+            },
+            {
+              "en": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea.",
+              "zh": "他的搭档非常担心他。她完全理解他正在经历的事，却完全不赞同他的想法。",
+              "image": "assets/images/5.jpg"
+            },
+            {
+              "en": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him.",
+              "zh": "为了让他平静下来并解决问题，她与他面对面交谈，分享了一系列学习英语的建议。",
+              "image": "assets/images/6.jpg"
+            }
+          ],
+          "wordIds": [
+            "ignore",
+            "go-through",
+            "disagree",
+            "calm",
+            "face-to-face",
+            "series"
+          ],
+          "questions": [
+            {
+              "id": "f-1",
+              "prompt": "How did his partner feel about his plan?",
+              "options": [
+                "She understood him but disagreed.",
+                "She wanted to leave with him.",
+                "She ignored his feelings."
+              ],
+              "answer": "She understood him but disagreed.",
+              "explanation": "understood … but … disagreed：理解一个人的感受，不等于赞同他的做法。",
+              "promptZh": "他的搭档怎么看待他的计划？",
+              "optionTranslations": [
+                "她理解他，但不赞同。",
+                "她想和他一起离开。",
+                "她忽视了他的感受。"
+              ]
+            },
+            {
+              "id": "f-2",
+              "prompt": "What did she do to help?",
+              "options": [
+                "She sent him a suitcase.",
+                "She talked with him and shared tips.",
+                "She asked him to stop studying."
+              ],
+              "answer": "She talked with him and shared tips.",
+              "explanation": "她通过 face to face 的谈话和 a series of tips 来帮助他。",
+              "promptZh": "她做了什么来帮助他？",
+              "optionTranslations": [
+                "她送给他一个行李箱。",
+                "她和他交谈，并分享建议。",
+                "她让他停止学习。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "id": "ignore-context",
+              "wordId": "ignore",
+              "kind": "context",
+              "prompt": "He felt the teacher ___ him.",
+              "options": [
+                "gained",
+                "ignored",
+                "packed"
+              ],
+              "answer": "ignored",
+              "explanation": "ignored 是过去式。注意文中是“他觉得”老师忽视了他。",
+              "promptZh": "他觉得老师___了他。",
+              "optionTranslations": [
+                "v. 获得",
+                "v. 忽视；不理睬",
+                "打包（过去式）"
+              ]
+            },
+            {
+              "id": "go-through-context",
+              "wordId": "go-through",
+              "kind": "context",
+              "prompt": "She understood what he was ___.",
+              "options": [
+                "going through",
+                "falling in love",
+                "writing down"
+              ],
+              "answer": "going through",
+              "explanation": "本句表示“经历”，不是从某个物体中穿过。",
+              "promptZh": "她理解他正在___的事情。",
+              "optionTranslations": [
+                "phr. 经历；经受",
+                "爱上",
+                "写下"
+              ]
+            },
+            {
+              "id": "disagree-context",
+              "wordId": "disagree",
+              "kind": "context",
+              "prompt": "She completely ___ with his idea.",
+              "options": [
+                "recovered",
+                "disagreed",
+                "attended"
+              ],
+              "answer": "disagreed",
+              "explanation": "dis- ＋ agree（同意）→ disagree；常与 with 连用。",
+              "promptZh": "她完全___他的想法。",
+              "optionTranslations": [
+                "v. 恢复",
+                "v. 不同意",
+                "参加（过去式）"
+              ]
+            },
+            {
+              "id": "calm-context",
+              "wordId": "calm",
+              "kind": "context",
+              "prompt": "She wanted to ___ him down.",
+              "options": [
+                "bear",
+                "calm",
+                "ignore"
+              ],
+              "answer": "calm",
+              "explanation": "calm him down：代词 him 放在 calm 和 down 中间。",
+              "promptZh": "她想让他___下来。",
+              "optionTranslations": [
+                "v. 忍受；承受",
+                "v. 使平静",
+                "v. 忽视；不理睬"
+              ]
+            },
+            {
+              "id": "face-to-face-context",
+              "wordId": "face-to-face",
+              "kind": "context",
+              "prompt": "She talked with him ___.",
+              "options": [
+                "at dusk",
+                "any longer",
+                "face to face"
+              ],
+              "answer": "face to face",
+              "explanation": "在 talked 后说明交谈方式，用 face to face。",
+              "promptZh": "她和他___交谈。",
+              "optionTranslations": [
+                "在黄昏时",
+                "再；更久",
+                "phr. 面对面地"
+              ]
+            },
+            {
+              "id": "series-context",
+              "wordId": "series",
+              "kind": "context",
+              "prompt": "She shared a ___ of tips with him.",
+              "options": [
+                "series",
+                "suitcase",
+                "strength"
+              ],
+              "answer": "series",
+              "explanation": "a series of 后接复数名词；series 的单复数形式相同。",
+              "promptZh": "她与他分享了___建议。",
+              "optionTranslations": [
+                "n. 一系列；一连串",
+                "n. 行李箱",
+                "n. 力量；意志力"
+              ]
+            },
+            {
+              "id": "ignore-transfer",
+              "wordId": "ignore",
+              "kind": "transfer",
+              "prompt": "Please do not ___ someone who asks for help.",
+              "answer": "ignore",
+              "explanation": "ignored 是过去式。注意文中是“他觉得”老师忽视了他。",
+              "promptZh": "请不要___向你求助的人。",
+              "optionTranslations": []
+            },
+            {
+              "id": "go-through-transfer",
+              "wordId": "go-through",
+              "kind": "transfer",
+              "prompt": "Many students ___ a difficult time before exams.",
+              "answer": "go through",
+              "explanation": "本句表示“经历”，不是从某个物体中穿过。",
+              "promptZh": "许多学生在考试前会___一段困难时期。",
+              "optionTranslations": []
+            },
+            {
+              "id": "disagree-transfer",
+              "wordId": "disagree",
+              "kind": "transfer",
+              "prompt": "I understand your idea, but I ___ with it.",
+              "answer": "disagree",
+              "explanation": "dis- ＋ agree（同意）→ disagree；常与 with 连用。",
+              "promptZh": "我理解你的想法，但我___它。",
+              "optionTranslations": []
+            },
+            {
+              "id": "calm-transfer",
+              "wordId": "calm",
+              "kind": "transfer",
+              "prompt": "Take a slow breath to ___ yourself down.",
+              "answer": "calm",
+              "explanation": "calm him down：代词 him 放在 calm 和 down 中间。",
+              "promptZh": "缓缓吸一口气，让自己___下来。",
+              "optionTranslations": []
+            },
+            {
+              "id": "face-to-face-transfer",
+              "wordId": "face-to-face",
+              "kind": "transfer",
+              "prompt": "Let’s meet and discuss this ___ instead of texting.",
+              "answer": "face to face",
+              "explanation": "在 talked 后说明交谈方式，用 face to face。",
+              "promptZh": "我们见面___讨论这件事吧，不要发短信了。",
+              "optionTranslations": []
+            },
+            {
+              "id": "series-transfer",
+              "wordId": "series",
+              "kind": "transfer",
+              "prompt": "The teacher asked a ___ of questions.",
+              "answer": "series",
+              "explanation": "a series of 后接复数名词；series 的单复数形式相同。",
+              "promptZh": "老师问了___问题。",
+              "optionTranslations": []
+            }
+          ]
+        },
+        {
+          "id": "beginning",
+          "title": "找回学习的力量",
+          "subtitle": "A different way forward",
+          "image": "assets/images/9.jpg",
+          "prompt": "一次谈话之后，他开始重新看待英语学习。读一读故事的结尾。",
+          "paragraphs": [
+            {
+              "en": "The learning methods she wrote down helped him find the “path” to learning English well.",
+              "zh": "她写下的学习方法，帮助他找到了学好英语的“道路”。",
+              "image": "assets/images/7.jpg"
+            },
+            {
+              "en": "The teenager was very grateful and gained great strength from his friend’s words.",
+              "zh": "少年非常感激，并从朋友的话中获得了很大的力量。",
+              "image": "assets/images/8.jpg"
+            },
+            {
+              "en": "Now, he has recovered from his depression and fallen in love with English.",
+              "zh": "现在，他已经从低落的情绪中恢复过来，并爱上了英语。",
+              "image": "assets/images/9.jpg"
+            }
+          ],
+          "wordIds": [
+            "method",
+            "grateful",
+            "gain",
+            "strength",
+            "recover",
+            "fall-in-love"
+          ],
+          "questions": [
+            {
+              "id": "b-1",
+              "prompt": "What helped him find a path to learning English?",
+              "options": [
+                "A new suitcase.",
+                "His friend’s learning methods.",
+                "Leaving home."
+              ],
+              "answer": "His friend’s learning methods.",
+              "explanation": "The learning methods … helped him：主语是“学习方法”，she wrote down 补充说明这些方法是谁写下的。",
+              "promptZh": "什么帮助他找到了学习英语的方法？",
+              "optionTranslations": [
+                "一个新行李箱。",
+                "朋友的学习方法。",
+                "离家。"
+              ]
+            },
+            {
+              "id": "b-2",
+              "prompt": "What changed by the end of the story?",
+              "options": [
+                "He began to love English.",
+                "He stopped talking to his friend.",
+                "He left home in the storm."
+              ],
+              "answer": "He began to love English.",
+              "explanation": "fallen in love with English 表示他已经喜欢上了英语。文中没有说他最终离家了。",
+              "promptZh": "故事结束时发生了什么变化？",
+              "optionTranslations": [
+                "他开始喜欢英语。",
+                "他不再和朋友说话。",
+                "他在暴风雨中离家了。"
+              ]
+            }
+          ],
+          "practice": [
+            {
+              "id": "method-context",
+              "wordId": "method",
+              "kind": "context",
+              "prompt": "The learning ___ helped him find a path.",
+              "options": [
+                "curtains",
+                "methods",
+                "parents"
+              ],
+              "answer": "methods",
+              "explanation": "原文 methods 是复数；新句前有 a，所以用单数 method。",
+              "promptZh": "这些学习___帮助他找到了方向。",
+              "optionTranslations": [
+                "n. 窗帘",
+                "n. 方法",
+                "父母"
+              ]
+            },
+            {
+              "id": "grateful-context",
+              "wordId": "grateful",
+              "kind": "context",
+              "prompt": "The teenager was very ___.",
+              "options": [
+                "dusty",
+                "grateful",
+                "loose"
+              ],
+              "answer": "grateful",
+              "explanation": "be grateful to 人 for 事：因某事而感激某人。",
+              "promptZh": "这个少年非常___。",
+              "optionTranslations": [
+                "adj. 积满灰尘的",
+                "adj. 感激的",
+                "松的；松垮的"
+              ]
+            },
+            {
+              "id": "gain-context",
+              "wordId": "gain",
+              "kind": "context",
+              "prompt": "He ___ great strength from his friend’s words.",
+              "options": [
+                "ignored",
+                "disagreed",
+                "gained"
+              ],
+              "answer": "gained",
+              "explanation": "gain 常用于获得经验、信心、力量等。",
+              "promptZh": "他从朋友的话中___了很大的力量。",
+              "optionTranslations": [
+                "v. 忽视；不理睬",
+                "v. 不同意",
+                "v. 获得"
+              ]
+            },
+            {
+              "id": "strength-context",
+              "wordId": "strength",
+              "kind": "context",
+              "prompt": "He gained great ___ from his friend’s words.",
+              "options": [
+                "dusk",
+                "strength",
+                "series"
+              ],
+              "answer": "strength",
+              "explanation": "本句偏重精神上的力量；strong 的名词形式是 strength。",
+              "promptZh": "他从朋友的话中获得了很大的___。",
+              "optionTranslations": [
+                "n. 黄昏",
+                "n. 力量；意志力",
+                "n. 一系列；一连串"
+              ]
+            },
+            {
+              "id": "recover-context",
+              "wordId": "recover",
+              "kind": "context",
+              "prompt": "He has ___ from his depression.",
+              "options": [
+                "recovered",
+                "packed",
+                "ignored"
+              ],
+              "answer": "recovered",
+              "explanation": "原文 has recovered 是现在完成时；新句 to 后用原形。",
+              "promptZh": "他已经从低落的情绪中___过来。",
+              "optionTranslations": [
+                "v. 恢复",
+                "打包（过去式）",
+                "v. 忽视；不理睬"
+              ]
+            },
+            {
+              "id": "fall-in-love-context",
+              "wordId": "fall-in-love",
+              "kind": "context",
+              "prompt": "He has ___ English.",
+              "options": [
+                "gone through",
+                "fallen in love with",
+                "disagreed with"
+              ],
+              "answer": "fallen in love with",
+              "explanation": "fall → fell → fallen；原文 has 后用过去分词 fallen。",
+              "promptZh": "他已经___英语。",
+              "optionTranslations": [
+                "经历过",
+                "phr. 爱上；喜欢上",
+                "不同意"
+              ]
+            },
+            {
+              "id": "method-transfer",
+              "wordId": "method",
+              "kind": "transfer",
+              "prompt": "Reading aloud is a useful ___ for learning English.",
+              "answer": "method",
+              "explanation": "原文 methods 是复数；新句前有 a，所以用单数 method。",
+              "promptZh": "朗读是学习英语的一种实用___。",
+              "optionTranslations": []
+            },
+            {
+              "id": "grateful-transfer",
+              "wordId": "grateful",
+              "kind": "transfer",
+              "prompt": "I am ___ to you for your help.",
+              "answer": "grateful",
+              "explanation": "be grateful to 人 for 事：因某事而感激某人。",
+              "promptZh": "对于你的帮助，我非常___。",
+              "optionTranslations": []
+            },
+            {
+              "id": "gain-transfer",
+              "wordId": "gain",
+              "kind": "transfer",
+              "prompt": "You can ___ experience by trying new things.",
+              "answer": "gain",
+              "explanation": "gain 常用于获得经验、信心、力量等。",
+              "promptZh": "尝试新事物能让你___经验。",
+              "optionTranslations": []
+            },
+            {
+              "id": "strength-transfer",
+              "wordId": "strength",
+              "kind": "transfer",
+              "prompt": "Her kind words gave me the ___ to try again.",
+              "answer": "strength",
+              "explanation": "本句偏重精神上的力量；strong 的名词形式是 strength。",
+              "promptZh": "她温暖的话语给了我再次尝试的___。",
+              "optionTranslations": []
+            },
+            {
+              "id": "recover-transfer",
+              "wordId": "recover",
+              "kind": "transfer",
+              "prompt": "It takes time to ___ from a bad cold.",
+              "answer": "recover",
+              "explanation": "原文 has recovered 是现在完成时；新句 to 后用原形。",
+              "promptZh": "重感冒后___需要时间。",
+              "optionTranslations": []
+            },
+            {
+              "id": "fall-in-love-transfer",
+              "wordId": "fall-in-love",
+              "kind": "transfer",
+              "prompt": "Visit this city and you may ___ its beautiful parks.",
+              "answer": "fall in love with",
+              "explanation": "fall → fell → fallen；原文 has 后用过去分词 fallen。",
+              "promptZh": "来这座城市看看，你可能会___这里美丽的公园。",
+              "optionTranslations": []
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "en": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase.",
+          "zh": "一个少年躲在松垮、积满灰尘的窗帘后，把大衣装进行李箱。",
+          "image": "assets/images/1.jpg",
+          "homophone": "额 提内者 黑德 比海恩德 路斯 达斯提 克腾斯，派肯 黑兹 欧沃扣特 因图 额 修特克斯。"
+        },
+        {
+          "en": "He planned to leave home at dusk, even though there was thunder and lightning outside.",
+          "zh": "他计划在黄昏时离家，尽管外面雷电交加。",
+          "image": "assets/images/2.jpg",
+          "homophone": "黑 普兰得 图 利夫 厚姆 艾特 达斯克，伊文 搜 泽尔 沃兹 桑德 安德 莱特宁 奥特赛德。"
+        },
+        {
+          "en": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer.",
+          "zh": "他觉得自己必须这样做，因为他已经厌烦父母对英语学习的唠叨，再也无法忍受了。",
+          "image": "assets/images/3.jpg",
+          "homophone": "黑 哈德 图 杜 迪斯 比考兹 黑 沃兹 费德 阿普 威兹 黑兹 派伦茨 奈根 额包特 黑兹 英格利什 勒宁，安德 库德恩特 贝尔 伊特 恩尼 朗格。"
+        },
+        {
+          "en": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him.",
+          "zh": "他不擅长英语，也不喜欢上英语课，因为他觉得老师忽视了他。",
+          "image": "assets/images/4.jpg",
+          "homophone": "黑 沃兹恩特 古德 艾特 英格利什 安德 迪德恩特 莱克 额腾丁 英格利什 克拉西斯，比考兹 黑 费尔特 额 提彻 伊格诺德 黑姆。"
+        },
+        {
+          "en": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea.",
+          "zh": "他的搭档非常担心他。她完全理解他正在经历的事，却完全不赞同他的想法。",
+          "image": "assets/images/5.jpg",
+          "homophone": "黑兹 帕特纳 沃兹 维瑞 沃瑞德 额包特 黑姆。希 弗利 安德斯图德 沃特 黑 沃兹 勾因 斯鲁，巴特 康普利特利 迪斯额格利德 威兹 黑兹 艾迪尔。"
+        },
+        {
+          "en": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him.",
+          "zh": "为了让他平静下来并解决问题，她与他面对面交谈，分享了一系列学习英语的建议。",
+          "image": "assets/images/6.jpg",
+          "homophone": "图 卡姆 黑姆 道恩 安德 索尔夫 黑兹 普若布勒姆，希 托克特 威兹 黑姆 费斯 图 费斯，安德 谢尔德 额 西瑞兹 奥夫 提普斯 昂 勒宁 英格利什 威兹 黑姆。"
+        },
+        {
+          "en": "The learning methods she wrote down helped him find the “path” to learning English well.",
+          "zh": "她写下的学习方法，帮助他找到了学好英语的“道路”。",
+          "image": "assets/images/7.jpg",
+          "homophone": "额 勒宁 麦瑟兹 希 若特 道恩，海尔德 黑姆 法因德 额 帕斯 图 勒宁 英格利什 威尔。"
+        },
+        {
+          "en": "The teenager was very grateful and gained great strength from his friend’s words.",
+          "zh": "少年非常感激，并从朋友的话中获得了很大的力量。",
+          "image": "assets/images/8.jpg",
+          "homophone": "额 提内者 沃兹 维瑞 格瑞特福，安德 给恩德 格瑞特 斯特伦斯 弗若姆 黑兹 弗伦兹 沃兹。"
+        },
+        {
+          "en": "Now, he has recovered from his depression and fallen in love with English.",
+          "zh": "现在，他已经从低落的情绪中恢复过来，并爱上了英语。",
+          "image": "assets/images/9.jpg",
+          "homophone": "闹，黑 哈兹 瑞卡沃德 弗若姆 黑兹 迪普瑞申，安德 福伦 因 拉夫 威兹 英格利什。"
+        }
+      ],
+      "words": [
+        {
+          "id": "dusty",
+          "term": "dusty",
+          "ipa": "/ˈdʌsti/",
+          "meaning": "adj. 积满灰尘的",
+          "collocation": "dusty curtains · 积满灰尘的窗帘",
+          "variants": [
+            "dusty"
+          ],
+          "original": "He hid behind loose, ___ curtains.",
+          "originalAnswer": "dusty",
+          "options": [
+            "dusty",
+            "grateful",
+            "calm"
+          ],
+          "transfer": "The old books were covered in dust. They were ___.",
+          "transferAnswer": "dusty",
+          "note": "dust（灰尘）＋ -y → dusty，表示“布满灰尘的”。",
+          "homophone": "达斯提",
+          "source": "少年与英语",
+          "example": "He hid behind loose, dusty curtains."
+        },
+        {
+          "id": "curtain",
+          "term": "curtain",
+          "ipa": "/ˈkɜːtn/",
+          "meaning": "n. 窗帘",
+          "collocation": "draw the curtains · 拉上窗帘",
+          "variants": [
+            "curtains"
+          ],
+          "original": "He hid behind loose, dusty ___.",
+          "originalAnswer": "curtains",
+          "options": [
+            "methods",
+            "curtains",
+            "tips"
+          ],
+          "transfer": "Please close the ___ to keep the light out.",
+          "transferAnswer": "curtains",
+          "note": "文中 curtains 用复数，指窗帘。填空时留意单复数。",
+          "homophone": "克腾",
+          "source": "少年与英语",
+          "example": "He hid behind loose, dusty curtains."
+        },
+        {
+          "id": "pack",
+          "term": "pack",
+          "ipa": "/pæk/",
+          "meaning": "v. 打包；收拾（行李）",
+          "collocation": "pack a suitcase · 收拾行李箱",
+          "variants": [
+            "packing"
+          ],
+          "original": "He was ___ his overcoat into a suitcase.",
+          "originalAnswer": "packing",
+          "options": [
+            "ignoring",
+            "packing",
+            "recovering"
+          ],
+          "transfer": "We need to ___ our bags before the trip.",
+          "transferAnswer": "pack",
+          "note": "文中的 packing 表示与 hid 同时发生的动作；need to 后接原形 pack。",
+          "homophone": "派克",
+          "source": "少年与英语",
+          "example": "He was packing his overcoat into a suitcase."
+        },
+        {
+          "id": "suitcase",
+          "term": "suitcase",
+          "ipa": "/ˈsuːtkeɪs/",
+          "meaning": "n. 行李箱",
+          "collocation": "into a suitcase · 装进行李箱",
+          "variants": [
+            "suitcase"
+          ],
+          "original": "He packed his overcoat into a ___.",
+          "originalAnswer": "suitcase",
+          "options": [
+            "curtain",
+            "series",
+            "suitcase"
+          ],
+          "transfer": "She put her clothes in a ___ for the holiday.",
+          "transferAnswer": "suitcase",
+          "note": "用“衣物放进旅行用的箱子”这一场景理解 suitcase。",
+          "homophone": "修特克斯",
+          "source": "少年与英语",
+          "example": "He packed his overcoat into a suitcase."
+        },
+        {
+          "id": "dusk",
+          "term": "dusk",
+          "ipa": "/dʌsk/",
+          "meaning": "n. 黄昏",
+          "collocation": "at dusk · 在黄昏时",
+          "variants": [
+            "dusk"
+          ],
+          "original": "He planned to leave home at ___.",
+          "originalAnswer": "dusk",
+          "options": [
+            "dusk",
+            "strength",
+            "home"
+          ],
+          "transfer": "The sun was setting. We arrived at ___.",
+          "transferAnswer": "dusk",
+          "note": "dusk 是日落后天色渐暗的时候；固定搭配 at dusk。",
+          "homophone": "达斯克",
+          "source": "少年与英语",
+          "example": "He planned to leave home at dusk."
+        },
+        {
+          "id": "bear",
+          "term": "bear",
+          "ipa": "/beə(r)/",
+          "meaning": "v. 忍受；承受",
+          "collocation": "can’t bear … · 无法忍受……",
+          "variants": [
+            "bear"
+          ],
+          "original": "He couldn’t ___ it any longer.",
+          "originalAnswer": "bear",
+          "options": [
+            "pack",
+            "bear",
+            "gain"
+          ],
+          "transfer": "The noise is so loud that I cannot ___ it.",
+          "transferAnswer": "bear",
+          "note": "这里 bear 是动词“忍受”，不是名词“熊”。couldn’t 后用原形。",
+          "homophone": "贝尔",
+          "source": "少年与英语",
+          "example": "He couldn’t bear it any longer."
+        },
+        {
+          "id": "ignore",
+          "term": "ignore",
+          "ipa": "/ɪɡˈnɔː(r)/",
+          "meaning": "v. 忽视；不理睬",
+          "collocation": "ignore someone · 不理睬某人",
+          "variants": [
+            "ignored"
+          ],
+          "original": "He felt the teacher ___ him.",
+          "originalAnswer": "ignored",
+          "options": [
+            "gained",
+            "ignored",
+            "packed"
+          ],
+          "transfer": "Please do not ___ someone who asks for help.",
+          "transferAnswer": "ignore",
+          "note": "ignored 是过去式。注意文中是“他觉得”老师忽视了他。",
+          "homophone": "伊格诺",
+          "source": "少年与英语",
+          "example": "He felt the teacher ignored him."
+        },
+        {
+          "id": "go-through",
+          "term": "go through",
+          "ipa": "/ɡəʊ θruː/",
+          "meaning": "phr. 经历；经受",
+          "collocation": "go through a difficult time · 经历困难时期",
+          "variants": [
+            "going through"
+          ],
+          "original": "She understood what he was ___.",
+          "originalAnswer": "going through",
+          "options": [
+            "going through",
+            "falling in love",
+            "writing down"
+          ],
+          "transfer": "Many students ___ a difficult time before exams.",
+          "transferAnswer": "go through",
+          "note": "本句表示“经历”，不是从某个物体中穿过。",
+          "homophone": "勾 思鲁",
+          "source": "少年与英语",
+          "example": "She understood what he was going through."
+        },
+        {
+          "id": "disagree",
+          "term": "disagree",
+          "ipa": "/ˌdɪsəˈɡriː/",
+          "meaning": "v. 不同意",
+          "collocation": "disagree with an idea · 不赞同一个想法",
+          "variants": [
+            "disagreed"
+          ],
+          "original": "She completely ___ with his idea.",
+          "originalAnswer": "disagreed",
+          "options": [
+            "recovered",
+            "disagreed",
+            "attended"
+          ],
+          "transfer": "I understand your idea, but I ___ with it.",
+          "transferAnswer": "disagree",
+          "note": "dis- ＋ agree（同意）→ disagree；常与 with 连用。",
+          "homophone": "迪斯额格利",
+          "source": "少年与英语",
+          "example": "She completely disagreed with his idea."
+        },
+        {
+          "id": "calm",
+          "term": "calm",
+          "ipa": "/kɑːm/",
+          "meaning": "v. 使平静",
+          "collocation": "calm someone down · 使某人平静下来",
+          "variants": [
+            "calm"
+          ],
+          "original": "She wanted to ___ him down.",
+          "originalAnswer": "calm",
+          "options": [
+            "bear",
+            "calm",
+            "ignore"
+          ],
+          "transfer": "Take a slow breath to ___ yourself down.",
+          "transferAnswer": "calm",
+          "note": "calm him down：代词 him 放在 calm 和 down 中间。",
+          "homophone": "卡姆",
+          "source": "少年与英语",
+          "example": "She wanted to calm him down."
+        },
+        {
+          "id": "face-to-face",
+          "term": "face to face",
+          "ipa": "/feɪs tə feɪs/",
+          "meaning": "phr. 面对面地",
+          "collocation": "talk face to face · 面对面交谈",
+          "variants": [
+            "face to face"
+          ],
+          "original": "She talked with him ___.",
+          "originalAnswer": "face to face",
+          "options": [
+            "at dusk",
+            "any longer",
+            "face to face"
+          ],
+          "transfer": "Let’s meet and discuss this ___ instead of texting.",
+          "transferAnswer": "face to face",
+          "note": "在 talked 后说明交谈方式，用 face to face。",
+          "homophone": "费斯 图 费斯",
+          "source": "少年与英语",
+          "example": "She talked with him face to face."
+        },
+        {
+          "id": "series",
+          "term": "series",
+          "ipa": "/ˈsɪəriːz/",
+          "meaning": "n. 一系列；一连串",
+          "collocation": "a series of tips · 一系列建议",
+          "variants": [
+            "series"
+          ],
+          "original": "She shared a ___ of tips with him.",
+          "originalAnswer": "series",
+          "options": [
+            "series",
+            "suitcase",
+            "strength"
+          ],
+          "transfer": "The teacher asked a ___ of questions.",
+          "transferAnswer": "series",
+          "note": "a series of 后接复数名词；series 的单复数形式相同。",
+          "homophone": "西瑞兹",
+          "source": "少年与英语",
+          "example": "She shared a series of tips with him."
+        },
+        {
+          "id": "method",
+          "term": "method",
+          "ipa": "/ˈmeθəd/",
+          "meaning": "n. 方法",
+          "collocation": "learning methods · 学习方法",
+          "variants": [
+            "methods"
+          ],
+          "original": "The learning ___ helped him find a path.",
+          "originalAnswer": "methods",
+          "options": [
+            "curtains",
+            "methods",
+            "parents"
+          ],
+          "transfer": "Reading aloud is a useful ___ for learning English.",
+          "transferAnswer": "method",
+          "note": "原文 methods 是复数；新句前有 a，所以用单数 method。",
+          "homophone": "麦瑟德",
+          "source": "少年与英语",
+          "example": "The learning methods helped him find a path."
+        },
+        {
+          "id": "grateful",
+          "term": "grateful",
+          "ipa": "/ˈɡreɪtfl/",
+          "meaning": "adj. 感激的",
+          "collocation": "be grateful to someone · 感激某人",
+          "variants": [
+            "grateful"
+          ],
+          "original": "The teenager was very ___.",
+          "originalAnswer": "grateful",
+          "options": [
+            "dusty",
+            "grateful",
+            "loose"
+          ],
+          "transfer": "I am ___ to you for your help.",
+          "transferAnswer": "grateful",
+          "note": "be grateful to 人 for 事：因某事而感激某人。",
+          "homophone": "格瑞特福",
+          "source": "少年与英语",
+          "example": "The teenager was very grateful."
+        },
+        {
+          "id": "gain",
+          "term": "gain",
+          "ipa": "/ɡeɪn/",
+          "meaning": "v. 获得",
+          "collocation": "gain strength · 获得力量",
+          "variants": [
+            "gained"
+          ],
+          "original": "He ___ great strength from his friend’s words.",
+          "originalAnswer": "gained",
+          "options": [
+            "ignored",
+            "disagreed",
+            "gained"
+          ],
+          "transfer": "You can ___ experience by trying new things.",
+          "transferAnswer": "gain",
+          "note": "gain 常用于获得经验、信心、力量等。",
+          "homophone": "给恩",
+          "source": "少年与英语",
+          "example": "He gained great strength from his friend’s words."
+        },
+        {
+          "id": "strength",
+          "term": "strength",
+          "ipa": "/streŋθ/",
+          "meaning": "n. 力量；意志力",
+          "collocation": "gain strength from … · 从……获得力量",
+          "variants": [
+            "strength"
+          ],
+          "original": "He gained great ___ from his friend’s words.",
+          "originalAnswer": "strength",
+          "options": [
+            "dusk",
+            "strength",
+            "series"
+          ],
+          "transfer": "Her kind words gave me the ___ to try again.",
+          "transferAnswer": "strength",
+          "note": "本句偏重精神上的力量；strong 的名词形式是 strength。",
+          "homophone": "斯特伦斯",
+          "source": "少年与英语",
+          "example": "He gained great strength from his friend’s words."
+        },
+        {
+          "id": "recover",
+          "term": "recover",
+          "ipa": "/rɪˈkʌvə(r)/",
+          "meaning": "v. 恢复",
+          "collocation": "recover from … · 从……中恢复",
+          "variants": [
+            "recovered"
+          ],
+          "original": "He has ___ from his depression.",
+          "originalAnswer": "recovered",
+          "options": [
+            "recovered",
+            "packed",
+            "ignored"
+          ],
+          "transfer": "It takes time to ___ from a bad cold.",
+          "transferAnswer": "recover",
+          "note": "原文 has recovered 是现在完成时；新句 to 后用原形。",
+          "homophone": "瑞卡沃",
+          "source": "少年与英语",
+          "example": "He has recovered from his depression."
+        },
+        {
+          "id": "fall-in-love",
+          "term": "fall in love with",
+          "ipa": "/fɔːl ɪn lʌv wɪð/",
+          "meaning": "phr. 爱上；喜欢上",
+          "collocation": "fall in love with English · 爱上英语",
+          "variants": [
+            "fallen in love with"
+          ],
+          "original": "He has ___ English.",
+          "originalAnswer": "fallen in love with",
+          "options": [
+            "gone through",
+            "fallen in love with",
+            "disagreed with"
+          ],
+          "transfer": "Visit this city and you may ___ its beautiful parks.",
+          "transferAnswer": "fall in love with",
+          "note": "fall → fell → fallen；原文 has 后用过去分词 fallen。",
+          "homophone": "福尔 因 拉夫 威兹",
+          "source": "少年与英语",
+          "example": "He has fallen in love with English."
+        }
+      ],
+      "questions": [
+        {
+          "id": "d-1",
+          "prompt": "When did the teenager plan to leave?",
+          "options": [
+            "At sunrise.",
+            "At dusk.",
+            "At midnight."
+          ],
+          "answer": "At dusk.",
+          "explanation": "at dusk 意为“在黄昏时”。留意 planned to：这是他的计划，文章还没有说他已经离开。",
+          "promptZh": "少年计划什么时候离开？",
+          "optionTranslations": [
+            "日出时。",
+            "黄昏时。",
+            "午夜时。"
+          ],
+          "scope": "paragraph",
+          "paragraph": 3
+        },
+        {
+          "id": "d-2",
+          "prompt": "Why did he want to leave home?",
+          "options": [
+            "He wanted to buy a coat.",
+            "He enjoyed the storm.",
+            "He could no longer bear the nagging."
+          ],
+          "answer": "He could no longer bear the nagging.",
+          "explanation": "fed up with 和 couldn’t bear … any longer 都表达了他对唠叨的厌烦与难以忍受。",
+          "promptZh": "他为什么想离家？",
+          "optionTranslations": [
+            "他想买一件外套。",
+            "他喜欢暴风雨。",
+            "他再也无法忍受唠叨。"
+          ],
+          "scope": "paragraph",
+          "paragraph": 3
+        },
+        {
+          "id": "f-1",
+          "prompt": "How did his partner feel about his plan?",
+          "options": [
+            "She understood him but disagreed.",
+            "She wanted to leave with him.",
+            "She ignored his feelings."
+          ],
+          "answer": "She understood him but disagreed.",
+          "explanation": "understood … but … disagreed：理解一个人的感受，不等于赞同他的做法。",
+          "promptZh": "他的搭档怎么看待他的计划？",
+          "optionTranslations": [
+            "她理解他，但不赞同。",
+            "她想和他一起离开。",
+            "她忽视了他的感受。"
+          ],
+          "scope": "paragraph",
+          "paragraph": 6
+        },
+        {
+          "id": "f-2",
+          "prompt": "What did she do to help?",
+          "options": [
+            "She sent him a suitcase.",
+            "She talked with him and shared tips.",
+            "She asked him to stop studying."
+          ],
+          "answer": "She talked with him and shared tips.",
+          "explanation": "她通过 face to face 的谈话和 a series of tips 来帮助他。",
+          "promptZh": "她做了什么来帮助他？",
+          "optionTranslations": [
+            "她送给他一个行李箱。",
+            "她和他交谈，并分享建议。",
+            "她让他停止学习。"
+          ],
+          "scope": "paragraph",
+          "paragraph": 6
+        },
+        {
+          "id": "b-1",
+          "prompt": "What helped him find a path to learning English?",
+          "options": [
+            "A new suitcase.",
+            "His friend’s learning methods.",
+            "Leaving home."
+          ],
+          "answer": "His friend’s learning methods.",
+          "explanation": "The learning methods … helped him：主语是“学习方法”，she wrote down 补充说明这些方法是谁写下的。",
+          "promptZh": "什么帮助他找到了学习英语的方法？",
+          "optionTranslations": [
+            "一个新行李箱。",
+            "朋友的学习方法。",
+            "离家。"
+          ],
+          "scope": "paragraph",
+          "paragraph": 9
+        },
+        {
+          "id": "b-2",
+          "prompt": "What changed by the end of the story?",
+          "options": [
+            "He began to love English.",
+            "He stopped talking to his friend.",
+            "He left home in the storm."
+          ],
+          "answer": "He began to love English.",
+          "explanation": "fallen in love with English 表示他已经喜欢上了英语。文中没有说他最终离家了。",
+          "promptZh": "故事结束时发生了什么变化？",
+          "optionTranslations": [
+            "他开始喜欢英语。",
+            "他不再和朋友说话。",
+            "他在暴风雨中离家了。"
+          ],
+          "scope": "paragraph",
+          "paragraph": 9
+        }
+      ]
+    },
+    {
+      "id": "primary-school-quiz-001",
+      "level": "小学",
+      "title": "校园的一天",
+      "englishTitle": "A Day at School",
+      "description": "小学文章与题目导入示例",
+      "paragraphs": [
+        {
+          "en": "I read a book at school.",
+          "zh": "我在学校读一本书。",
+          "homophone": "艾 瑞德 额 布克 艾特 斯库尔。",
+          "image": ""
+        },
+        {
+          "en": "My bag is blue. I like my school.",
+          "zh": "我的书包是蓝色的。我喜欢我的学校。",
+          "homophone": "麦 拜格 伊兹 布鲁。艾 莱克 麦 斯库尔。",
+          "image": ""
+        }
+      ],
+      "words": [
+        {
+          "term": "school",
+          "meaning": "n. 学校",
+          "homophone": "斯库尔",
+          "id": "school"
+        },
+        {
+          "term": "book",
+          "meaning": "n. 书",
+          "homophone": "布克",
+          "example": "I read a book at school.",
+          "id": "book"
+        },
+        {
+          "term": "blue",
+          "meaning": "adj. 蓝色的",
+          "homophone": "布鲁",
+          "id": "blue"
+        }
+      ],
+      "questions": [
+        {
+          "id": "where-read",
+          "type": "choice",
+          "scope": "paragraph",
+          "paragraph": 1,
+          "prompt": "Where do I read a book?",
+          "promptZh": "我在哪里读书？",
+          "options": [
+            "At school.",
+            "At home."
+          ],
+          "optionTranslations": [
+            "在学校。",
+            "在家。"
+          ],
+          "answer": "At school.",
+          "explanation": "第一段的 at school 表示“在学校”。"
+        },
+        {
+          "id": "bag-colour",
+          "type": "choice",
+          "scope": "article",
+          "prompt": "What colour is my bag?",
+          "promptZh": "我的书包是什么颜色的？",
+          "options": [
+            "Blue.",
+            "Red."
+          ],
+          "optionTranslations": [
+            "蓝色。",
+            "红色。"
+          ],
+          "answer": "Blue.",
+          "explanation": "第二段 My bag is blue. 说明书包是蓝色的。"
+        },
+        {
+          "id": "book-fill",
+          "type": "fill",
+          "scope": "word",
+          "word": "book",
+          "prompt": "I read a ___ at school.",
+          "promptZh": "我在学校读一本___。",
+          "answer": "book",
+          "acceptedAnswers": [
+            "storybook"
+          ],
+          "explanation": "read a book 意为“读一本书”。storybook（故事书）也是此题允许的表达。"
+        }
+      ]
+    }
+  ],
+  "dictionary": [
+    {
+      "id": "dusty",
+      "term": "dusty",
+      "ipa": "/ˈdʌsti/",
+      "meaning": "adj. 积满灰尘的",
+      "collocation": "dusty curtains · 积满灰尘的窗帘",
+      "variants": [
+        "dusty"
+      ],
+      "original": "He hid behind loose, ___ curtains.",
+      "originalAnswer": "dusty",
+      "options": [
+        "dusty",
+        "grateful",
+        "calm"
+      ],
+      "transfer": "The old books were covered in dust. They were ___.",
+      "transferAnswer": "dusty",
+      "note": "dust（灰尘）＋ -y → dusty，表示“布满灰尘的”。",
+      "homophone": "达斯提",
+      "source": "少年与英语",
+      "example": "He hid behind loose, dusty curtains."
+    },
+    {
+      "id": "curtain",
+      "term": "curtain",
+      "ipa": "/ˈkɜːtn/",
+      "meaning": "n. 窗帘",
+      "collocation": "draw the curtains · 拉上窗帘",
+      "variants": [
+        "curtains"
+      ],
+      "original": "He hid behind loose, dusty ___.",
+      "originalAnswer": "curtains",
+      "options": [
+        "methods",
+        "curtains",
+        "tips"
+      ],
+      "transfer": "Please close the ___ to keep the light out.",
+      "transferAnswer": "curtains",
+      "note": "文中 curtains 用复数，指窗帘。填空时留意单复数。",
+      "homophone": "克腾",
+      "source": "少年与英语",
+      "example": "He hid behind loose, dusty curtains."
+    },
+    {
+      "id": "pack",
+      "term": "pack",
+      "ipa": "/pæk/",
+      "meaning": "v. 打包；收拾（行李）",
+      "collocation": "pack a suitcase · 收拾行李箱",
+      "variants": [
+        "packing"
+      ],
+      "original": "He was ___ his overcoat into a suitcase.",
+      "originalAnswer": "packing",
+      "options": [
+        "ignoring",
+        "packing",
+        "recovering"
+      ],
+      "transfer": "We need to ___ our bags before the trip.",
+      "transferAnswer": "pack",
+      "note": "文中的 packing 表示与 hid 同时发生的动作；need to 后接原形 pack。",
+      "homophone": "派克",
+      "source": "少年与英语",
+      "example": "He was packing his overcoat into a suitcase."
+    },
+    {
+      "id": "suitcase",
+      "term": "suitcase",
+      "ipa": "/ˈsuːtkeɪs/",
+      "meaning": "n. 行李箱",
+      "collocation": "into a suitcase · 装进行李箱",
+      "variants": [
+        "suitcase"
+      ],
+      "original": "He packed his overcoat into a ___.",
+      "originalAnswer": "suitcase",
+      "options": [
+        "curtain",
+        "series",
+        "suitcase"
+      ],
+      "transfer": "She put her clothes in a ___ for the holiday.",
+      "transferAnswer": "suitcase",
+      "note": "用“衣物放进旅行用的箱子”这一场景理解 suitcase。",
+      "homophone": "修特克斯",
+      "source": "少年与英语",
+      "example": "He packed his overcoat into a suitcase."
+    },
+    {
+      "id": "dusk",
+      "term": "dusk",
+      "ipa": "/dʌsk/",
+      "meaning": "n. 黄昏",
+      "collocation": "at dusk · 在黄昏时",
+      "variants": [
+        "dusk"
+      ],
+      "original": "He planned to leave home at ___.",
+      "originalAnswer": "dusk",
+      "options": [
+        "dusk",
+        "strength",
+        "home"
+      ],
+      "transfer": "The sun was setting. We arrived at ___.",
+      "transferAnswer": "dusk",
+      "note": "dusk 是日落后天色渐暗的时候；固定搭配 at dusk。",
+      "homophone": "达斯克",
+      "source": "少年与英语",
+      "example": "He planned to leave home at dusk."
+    },
+    {
+      "id": "bear",
+      "term": "bear",
+      "ipa": "/beə(r)/",
+      "meaning": "v. 忍受；承受",
+      "collocation": "can’t bear … · 无法忍受……",
+      "variants": [
+        "bear"
+      ],
+      "original": "He couldn’t ___ it any longer.",
+      "originalAnswer": "bear",
+      "options": [
+        "pack",
+        "bear",
+        "gain"
+      ],
+      "transfer": "The noise is so loud that I cannot ___ it.",
+      "transferAnswer": "bear",
+      "note": "这里 bear 是动词“忍受”，不是名词“熊”。couldn’t 后用原形。",
+      "homophone": "贝尔",
+      "source": "少年与英语",
+      "example": "He couldn’t bear it any longer."
+    },
+    {
+      "id": "ignore",
+      "term": "ignore",
+      "ipa": "/ɪɡˈnɔː(r)/",
+      "meaning": "v. 忽视；不理睬",
+      "collocation": "ignore someone · 不理睬某人",
+      "variants": [
+        "ignored"
+      ],
+      "original": "He felt the teacher ___ him.",
+      "originalAnswer": "ignored",
+      "options": [
+        "gained",
+        "ignored",
+        "packed"
+      ],
+      "transfer": "Please do not ___ someone who asks for help.",
+      "transferAnswer": "ignore",
+      "note": "ignored 是过去式。注意文中是“他觉得”老师忽视了他。",
+      "homophone": "伊格诺",
+      "source": "少年与英语",
+      "example": "He felt the teacher ignored him."
+    },
+    {
+      "id": "go-through",
+      "term": "go through",
+      "ipa": "/ɡəʊ θruː/",
+      "meaning": "phr. 经历；经受",
+      "collocation": "go through a difficult time · 经历困难时期",
+      "variants": [
+        "going through"
+      ],
+      "original": "She understood what he was ___.",
+      "originalAnswer": "going through",
+      "options": [
+        "going through",
+        "falling in love",
+        "writing down"
+      ],
+      "transfer": "Many students ___ a difficult time before exams.",
+      "transferAnswer": "go through",
+      "note": "本句表示“经历”，不是从某个物体中穿过。",
+      "homophone": "勾 思鲁",
+      "source": "少年与英语",
+      "example": "She understood what he was going through."
+    },
+    {
+      "id": "disagree",
+      "term": "disagree",
+      "ipa": "/ˌdɪsəˈɡriː/",
+      "meaning": "v. 不同意",
+      "collocation": "disagree with an idea · 不赞同一个想法",
+      "variants": [
+        "disagreed"
+      ],
+      "original": "She completely ___ with his idea.",
+      "originalAnswer": "disagreed",
+      "options": [
+        "recovered",
+        "disagreed",
+        "attended"
+      ],
+      "transfer": "I understand your idea, but I ___ with it.",
+      "transferAnswer": "disagree",
+      "note": "dis- ＋ agree（同意）→ disagree；常与 with 连用。",
+      "homophone": "迪斯额格利",
+      "source": "少年与英语",
+      "example": "She completely disagreed with his idea."
+    },
+    {
+      "id": "calm",
+      "term": "calm",
+      "ipa": "/kɑːm/",
+      "meaning": "v. 使平静",
+      "collocation": "calm someone down · 使某人平静下来",
+      "variants": [
+        "calm"
+      ],
+      "original": "She wanted to ___ him down.",
+      "originalAnswer": "calm",
+      "options": [
+        "bear",
+        "calm",
+        "ignore"
+      ],
+      "transfer": "Take a slow breath to ___ yourself down.",
+      "transferAnswer": "calm",
+      "note": "calm him down：代词 him 放在 calm 和 down 中间。",
+      "homophone": "卡姆",
+      "source": "少年与英语",
+      "example": "She wanted to calm him down."
+    },
+    {
+      "id": "face-to-face",
+      "term": "face to face",
+      "ipa": "/feɪs tə feɪs/",
+      "meaning": "phr. 面对面地",
+      "collocation": "talk face to face · 面对面交谈",
+      "variants": [
+        "face to face"
+      ],
+      "original": "She talked with him ___.",
+      "originalAnswer": "face to face",
+      "options": [
+        "at dusk",
+        "any longer",
+        "face to face"
+      ],
+      "transfer": "Let’s meet and discuss this ___ instead of texting.",
+      "transferAnswer": "face to face",
+      "note": "在 talked 后说明交谈方式，用 face to face。",
+      "homophone": "费斯 图 费斯",
+      "source": "少年与英语",
+      "example": "She talked with him face to face."
+    },
+    {
+      "id": "series",
+      "term": "series",
+      "ipa": "/ˈsɪəriːz/",
+      "meaning": "n. 一系列；一连串",
+      "collocation": "a series of tips · 一系列建议",
+      "variants": [
+        "series"
+      ],
+      "original": "She shared a ___ of tips with him.",
+      "originalAnswer": "series",
+      "options": [
+        "series",
+        "suitcase",
+        "strength"
+      ],
+      "transfer": "The teacher asked a ___ of questions.",
+      "transferAnswer": "series",
+      "note": "a series of 后接复数名词；series 的单复数形式相同。",
+      "homophone": "西瑞兹",
+      "source": "少年与英语",
+      "example": "She shared a series of tips with him."
+    },
+    {
+      "id": "method",
+      "term": "method",
+      "ipa": "/ˈmeθəd/",
+      "meaning": "n. 方法",
+      "collocation": "learning methods · 学习方法",
+      "variants": [
+        "methods"
+      ],
+      "original": "The learning ___ helped him find a path.",
+      "originalAnswer": "methods",
+      "options": [
+        "curtains",
+        "methods",
+        "parents"
+      ],
+      "transfer": "Reading aloud is a useful ___ for learning English.",
+      "transferAnswer": "method",
+      "note": "原文 methods 是复数；新句前有 a，所以用单数 method。",
+      "homophone": "麦瑟德",
+      "source": "少年与英语",
+      "example": "The learning methods helped him find a path."
+    },
+    {
+      "id": "grateful",
+      "term": "grateful",
+      "ipa": "/ˈɡreɪtfl/",
+      "meaning": "adj. 感激的",
+      "collocation": "be grateful to someone · 感激某人",
+      "variants": [
+        "grateful"
+      ],
+      "original": "The teenager was very ___.",
+      "originalAnswer": "grateful",
+      "options": [
+        "dusty",
+        "grateful",
+        "loose"
+      ],
+      "transfer": "I am ___ to you for your help.",
+      "transferAnswer": "grateful",
+      "note": "be grateful to 人 for 事：因某事而感激某人。",
+      "homophone": "格瑞特福",
+      "source": "少年与英语",
+      "example": "The teenager was very grateful."
+    },
+    {
+      "id": "gain",
+      "term": "gain",
+      "ipa": "/ɡeɪn/",
+      "meaning": "v. 获得",
+      "collocation": "gain strength · 获得力量",
+      "variants": [
+        "gained"
+      ],
+      "original": "He ___ great strength from his friend’s words.",
+      "originalAnswer": "gained",
+      "options": [
+        "ignored",
+        "disagreed",
+        "gained"
+      ],
+      "transfer": "You can ___ experience by trying new things.",
+      "transferAnswer": "gain",
+      "note": "gain 常用于获得经验、信心、力量等。",
+      "homophone": "给恩",
+      "source": "少年与英语",
+      "example": "He gained great strength from his friend’s words."
+    },
+    {
+      "id": "strength",
+      "term": "strength",
+      "ipa": "/streŋθ/",
+      "meaning": "n. 力量；意志力",
+      "collocation": "gain strength from … · 从……获得力量",
+      "variants": [
+        "strength"
+      ],
+      "original": "He gained great ___ from his friend’s words.",
+      "originalAnswer": "strength",
+      "options": [
+        "dusk",
+        "strength",
+        "series"
+      ],
+      "transfer": "Her kind words gave me the ___ to try again.",
+      "transferAnswer": "strength",
+      "note": "本句偏重精神上的力量；strong 的名词形式是 strength。",
+      "homophone": "斯特伦斯",
+      "source": "少年与英语",
+      "example": "He gained great strength from his friend’s words."
+    },
+    {
+      "id": "recover",
+      "term": "recover",
+      "ipa": "/rɪˈkʌvə(r)/",
+      "meaning": "v. 恢复",
+      "collocation": "recover from … · 从……中恢复",
+      "variants": [
+        "recovered"
+      ],
+      "original": "He has ___ from his depression.",
+      "originalAnswer": "recovered",
+      "options": [
+        "recovered",
+        "packed",
+        "ignored"
+      ],
+      "transfer": "It takes time to ___ from a bad cold.",
+      "transferAnswer": "recover",
+      "note": "原文 has recovered 是现在完成时；新句 to 后用原形。",
+      "homophone": "瑞卡沃",
+      "source": "少年与英语",
+      "example": "He has recovered from his depression."
+    },
+    {
+      "id": "fall-in-love",
+      "term": "fall in love with",
+      "ipa": "/fɔːl ɪn lʌv wɪð/",
+      "meaning": "phr. 爱上；喜欢上",
+      "collocation": "fall in love with English · 爱上英语",
+      "variants": [
+        "fallen in love with"
+      ],
+      "original": "He has ___ English.",
+      "originalAnswer": "fallen in love with",
+      "options": [
+        "gone through",
+        "fallen in love with",
+        "disagreed with"
+      ],
+      "transfer": "Visit this city and you may ___ its beautiful parks.",
+      "transferAnswer": "fall in love with",
+      "note": "fall → fell → fallen；原文 has 后用过去分词 fallen。",
+      "homophone": "福尔 因 拉夫 威兹",
+      "source": "少年与英语",
+      "example": "He has fallen in love with English."
+    },
+    {
+      "id": "glossary-a",
+      "term": "a",
+      "meaning": "一（个）；不定冠词",
+      "homophone": "额",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "a"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-about",
+      "term": "about",
+      "meaning": "关于",
+      "homophone": "额包特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "about"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-and",
+      "term": "and",
+      "meaning": "和；并且",
+      "homophone": "安德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "and"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-any",
+      "term": "any",
+      "meaning": "任何；一些",
+      "homophone": "恩尼",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "any"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-at",
+      "term": "at",
+      "meaning": "在（时间、地点）",
+      "homophone": "艾特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "at"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-attending",
+      "term": "attending",
+      "meaning": "参加；attend 的 -ing 形式",
+      "homophone": "额腾丁",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "attending"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-because",
+      "term": "because",
+      "meaning": "因为",
+      "homophone": "比考兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "because"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-behind",
+      "term": "behind",
+      "meaning": "在……后面",
+      "homophone": "比海恩德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "behind"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-but",
+      "term": "but",
+      "meaning": "但是",
+      "homophone": "巴特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "but"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-classes",
+      "term": "classes",
+      "meaning": "课；class 的复数",
+      "homophone": "克拉西斯",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "classes"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-completely",
+      "term": "completely",
+      "meaning": "完全地",
+      "homophone": "康普利特利",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "completely"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-couldn't",
+      "term": "couldn’t",
+      "meaning": "不能；could not 的缩写",
+      "homophone": "库德恩特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "couldn’t"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-depression",
+      "term": "depression",
+      "meaning": "低落；沮丧（本文义）",
+      "homophone": "迪普瑞申",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "depression"
+      ],
+      "example": "Now, he has recovered from his depression and fallen in love with English."
+    },
+    {
+      "id": "glossary-didn't",
+      "term": "didn’t",
+      "meaning": "没有；did not 的缩写",
+      "homophone": "迪德恩特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "didn’t"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-do",
+      "term": "do",
+      "meaning": "做",
+      "homophone": "杜",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "do"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-down",
+      "term": "down",
+      "meaning": "向下；calm down 中表示平静下来",
+      "homophone": "道恩",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "down"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-english",
+      "term": "english",
+      "meaning": "英语",
+      "homophone": "英格利什",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "english"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-even",
+      "term": "even",
+      "meaning": "甚至；even though 表示尽管",
+      "homophone": "伊文",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "even"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-face",
+      "term": "face",
+      "meaning": "脸；面对",
+      "homophone": "费斯",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "face"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-fallen",
+      "term": "fallen",
+      "meaning": "fall 的过去分词",
+      "homophone": "福伦",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "fallen"
+      ],
+      "example": "Now, he has recovered from his depression and fallen in love with English."
+    },
+    {
+      "id": "glossary-fed",
+      "term": "fed",
+      "meaning": "feed 的过去式；fed up 表示厌烦",
+      "homophone": "费德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "fed"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-felt",
+      "term": "felt",
+      "meaning": "感到；feel 的过去式",
+      "homophone": "费尔特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "felt"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-find",
+      "term": "find",
+      "meaning": "找到",
+      "homophone": "法因德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "find"
+      ],
+      "example": "The learning methods she wrote down helped him find the “path” to learning English well."
+    },
+    {
+      "id": "glossary-friend's",
+      "term": "friend’s",
+      "meaning": "朋友的",
+      "homophone": "弗伦兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "friend’s"
+      ],
+      "example": "The teenager was very grateful and gained great strength from his friend’s words."
+    },
+    {
+      "id": "glossary-from",
+      "term": "from",
+      "meaning": "从；来自",
+      "homophone": "弗若姆",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "from"
+      ],
+      "example": "The teenager was very grateful and gained great strength from his friend’s words."
+    },
+    {
+      "id": "glossary-fully",
+      "term": "fully",
+      "meaning": "完全地",
+      "homophone": "弗利",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "fully"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-going",
+      "term": "going",
+      "meaning": "go 的 -ing 形式",
+      "homophone": "勾因",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "going"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-good",
+      "term": "good",
+      "meaning": "好的；擅长的",
+      "homophone": "古德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "good"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-great",
+      "term": "great",
+      "meaning": "很大的；出色的",
+      "homophone": "格瑞特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "great"
+      ],
+      "example": "The teenager was very grateful and gained great strength from his friend’s words."
+    },
+    {
+      "id": "glossary-had",
+      "term": "had",
+      "meaning": "have 的过去式；had to 表示不得不",
+      "homophone": "哈德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "had"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-has",
+      "term": "has",
+      "meaning": "have 的第三人称单数",
+      "homophone": "哈兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "has"
+      ],
+      "example": "Now, he has recovered from his depression and fallen in love with English."
+    },
+    {
+      "id": "glossary-he",
+      "term": "he",
+      "meaning": "他",
+      "homophone": "黑",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "he"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-helped",
+      "term": "helped",
+      "meaning": "帮助；help 的过去式",
+      "homophone": "海尔德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "helped"
+      ],
+      "example": "The learning methods she wrote down helped him find the “path” to learning English well."
+    },
+    {
+      "id": "glossary-hid",
+      "term": "hid",
+      "meaning": "躲藏；hide 的过去式",
+      "homophone": "黑德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "hid"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-him",
+      "term": "him",
+      "meaning": "他（宾格）",
+      "homophone": "黑姆",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "him"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-his",
+      "term": "his",
+      "meaning": "他的",
+      "homophone": "黑兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "his"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-home",
+      "term": "home",
+      "meaning": "家",
+      "homophone": "厚姆",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "home"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-idea",
+      "term": "idea",
+      "meaning": "想法",
+      "homophone": "艾迪尔",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "idea"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-in",
+      "term": "in",
+      "meaning": "在……里面",
+      "homophone": "因",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "in"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-into",
+      "term": "into",
+      "meaning": "进入……里面",
+      "homophone": "因图",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "into"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-it",
+      "term": "it",
+      "meaning": "它；这件事",
+      "homophone": "伊特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "it"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-learning",
+      "term": "learning",
+      "meaning": "学习",
+      "homophone": "勒宁",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "learning"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-leave",
+      "term": "leave",
+      "meaning": "离开",
+      "homophone": "利夫",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "leave"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-lightning",
+      "term": "lightning",
+      "meaning": "闪电",
+      "homophone": "莱特宁",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "lightning"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-like",
+      "term": "like",
+      "meaning": "喜欢",
+      "homophone": "莱克",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "like"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-longer",
+      "term": "longer",
+      "meaning": "更久；any longer 表示再、继续",
+      "homophone": "朗格",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "longer"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-loose",
+      "term": "loose",
+      "meaning": "松的；松垮的",
+      "homophone": "路斯",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "loose"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-love",
+      "term": "love",
+      "meaning": "喜爱；爱",
+      "homophone": "拉夫",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "love"
+      ],
+      "example": "Now, he has recovered from his depression and fallen in love with English."
+    },
+    {
+      "id": "glossary-nagging",
+      "term": "nagging",
+      "meaning": "唠叨",
+      "homophone": "奈根",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "nagging"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-now",
+      "term": "now",
+      "meaning": "现在",
+      "homophone": "闹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "now"
+      ],
+      "example": "Now, he has recovered from his depression and fallen in love with English."
+    },
+    {
+      "id": "glossary-of",
+      "term": "of",
+      "meaning": "……的",
+      "homophone": "奥夫",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "of"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-on",
+      "term": "on",
+      "meaning": "关于；在……上",
+      "homophone": "昂",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "on"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-outside",
+      "term": "outside",
+      "meaning": "在外面",
+      "homophone": "奥特赛德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "outside"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-overcoat",
+      "term": "overcoat",
+      "meaning": "大衣",
+      "homophone": "欧沃扣特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "overcoat"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-parents",
+      "term": "parents",
+      "meaning": "父母",
+      "homophone": "派伦茨",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "parents"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-partner",
+      "term": "partner",
+      "meaning": "搭档",
+      "homophone": "帕特纳",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "partner"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-path",
+      "term": "path",
+      "meaning": "道路；途径",
+      "homophone": "帕斯",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "path"
+      ],
+      "example": "The learning methods she wrote down helped him find the “path” to learning English well."
+    },
+    {
+      "id": "glossary-planned",
+      "term": "planned",
+      "meaning": "计划；plan 的过去式",
+      "homophone": "普兰得",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "planned"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-problem",
+      "term": "problem",
+      "meaning": "问题",
+      "homophone": "普若布勒姆",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "problem"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-shared",
+      "term": "shared",
+      "meaning": "分享；share 的过去式",
+      "homophone": "谢尔德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "shared"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-she",
+      "term": "she",
+      "meaning": "她",
+      "homophone": "希",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "she"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-solve",
+      "term": "solve",
+      "meaning": "解决",
+      "homophone": "索尔夫",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "solve"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-talked",
+      "term": "talked",
+      "meaning": "交谈；talk 的过去式",
+      "homophone": "托克特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "talked"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-teacher",
+      "term": "teacher",
+      "meaning": "老师",
+      "homophone": "提彻",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "teacher"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-teenager",
+      "term": "teenager",
+      "meaning": "青少年",
+      "homophone": "提内者",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "teenager"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-the",
+      "term": "the",
+      "meaning": "定冠词，表示特指",
+      "homophone": "额",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "the"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-there",
+      "term": "there",
+      "meaning": "那里；there was 表示有",
+      "homophone": "泽尔",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "there"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-this",
+      "term": "this",
+      "meaning": "这；这个",
+      "homophone": "迪斯",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "this"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-though",
+      "term": "though",
+      "meaning": "尽管；虽然",
+      "homophone": "搜",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "though"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-through",
+      "term": "through",
+      "meaning": "经历；穿过",
+      "homophone": "思鲁",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "through"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-thunder",
+      "term": "thunder",
+      "meaning": "雷；雷声",
+      "homophone": "桑德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "thunder"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-tips",
+      "term": "tips",
+      "meaning": "建议；窍门",
+      "homophone": "提普斯",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "tips"
+      ],
+      "example": "To calm him down and solve his problem, she talked with him face to face and shared a series of tips on learning English with him."
+    },
+    {
+      "id": "glossary-to",
+      "term": "to",
+      "meaning": "到；不定式标记",
+      "homophone": "图",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "to"
+      ],
+      "example": "A teenager hid behind loose, dusty curtains, packing his overcoat into a suitcase."
+    },
+    {
+      "id": "glossary-understood",
+      "term": "understood",
+      "meaning": "理解；understand 的过去式",
+      "homophone": "安德斯图德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "understood"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-up",
+      "term": "up",
+      "meaning": "向上；fed up 中表示厌烦",
+      "homophone": "阿普",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "up"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-very",
+      "term": "very",
+      "meaning": "非常",
+      "homophone": "维瑞",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "very"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-was",
+      "term": "was",
+      "meaning": "是；be 的过去式",
+      "homophone": "沃兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "was"
+      ],
+      "example": "He planned to leave home at dusk, even though there was thunder and lightning outside."
+    },
+    {
+      "id": "glossary-wasn't",
+      "term": "wasn’t",
+      "meaning": "不是；was not 的缩写",
+      "homophone": "沃兹恩特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "wasn’t"
+      ],
+      "example": "He wasn’t good at English and didn’t like attending English classes because he felt the teacher ignored him."
+    },
+    {
+      "id": "glossary-well",
+      "term": "well",
+      "meaning": "好地",
+      "homophone": "威尔",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "well"
+      ],
+      "example": "The learning methods she wrote down helped him find the “path” to learning English well."
+    },
+    {
+      "id": "glossary-what",
+      "term": "what",
+      "meaning": "什么；所……的事",
+      "homophone": "沃特",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "what"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    },
+    {
+      "id": "glossary-with",
+      "term": "with",
+      "meaning": "和；带有",
+      "homophone": "威兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "with"
+      ],
+      "example": "He had to do this because he was fed up with his parents’ nagging about his English learning and couldn’t bear it any longer."
+    },
+    {
+      "id": "glossary-words",
+      "term": "words",
+      "meaning": "话语；单词",
+      "homophone": "沃兹",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "words"
+      ],
+      "example": "The teenager was very grateful and gained great strength from his friend’s words."
+    },
+    {
+      "id": "glossary-worried",
+      "term": "worried",
+      "meaning": "担心的",
+      "homophone": "沃瑞德",
+      "ipa": "",
+      "source": "少年与英语",
+      "variants": [
+        "worried"
+      ],
+      "example": "His partner was very worried about him. She fully understood what he was going through but completely disagreed with his idea."
+    }
+  ]
+}

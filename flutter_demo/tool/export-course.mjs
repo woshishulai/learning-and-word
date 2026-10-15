@@ -1,0 +1,11 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { course, practiceQuestions } from '../../modules/course.js';
+import { courseArticle } from '../../modules/article-preview.js';
+import { dictionary } from '../../modules/notebook.js';
+import { questionTranslation } from '../../modules/question-translations.js';
+const enrich=q=>({...q,promptZh:questionTranslation(q.prompt),optionTranslations:(q.options||[]).map(questionTranslation)});
+const article={...courseArticle,lessons:course.lessons.map((l,i)=>({...l,questions:l.questions.map(enrich),practice:practiceQuestions(i).map(enrich)})),questions:course.lessons.flatMap((l,i)=>l.questions.map(q=>({...enrich(q),scope:'paragraph',paragraph:i*3+3})))};
+const articles=[article,...JSON.parse(readFileSync(new URL('../../examples/primary-with-questions.json',import.meta.url),'utf8'))];
+for(const a of articles) a.words=a.words.map(w=>({...dictionary[w.id],...w,id:w.id||w.term.toLowerCase()}));
+writeFileSync(new URL('../assets/data/catalog.json',import.meta.url),JSON.stringify({articles,dictionary:Object.values(dictionary)},null,2).replaceAll('/static/course/teenager/','assets/images/'));
+console.log('本地演示课程已导出，不访问云服务。');
