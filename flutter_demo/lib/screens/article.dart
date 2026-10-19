@@ -16,49 +16,65 @@ class ParagraphCard extends StatelessWidget {
     this.full = false,
   });
   @override
-  Widget build(BuildContext context) => panel([
-    Text('第 ${index + 1} 段', style: const TextStyle(color: Colors.blueGrey)),
-    const SizedBox(height: 12),
-    if (store.prefs['images'] == true) assetImage(str(paragraph['image'])),
-    const SizedBox(height: 14),
-    if (full || store.prefs['english'] == true)
-      EnglishText(str(paragraph['en']), article: article),
-    if (store.prefs['translation'] == true)
-      Padding(
-        padding: const EdgeInsets.only(top: 14),
-        child: Text(
-          str(paragraph['zh']),
-          style: const TextStyle(
-            fontSize: 17,
-            height: 1.8,
-            color: Colors.blueGrey,
+  Widget build(BuildContext context) {
+    final content = <Widget>[
+      if (!full) ...[
+        Text(
+          '第 ${index + 1} 段',
+          style: const TextStyle(color: Colors.blueGrey),
+        ),
+        const SizedBox(height: 12),
+      ],
+      if (store.prefs['images'] == true) assetImage(str(paragraph['image'])),
+      const SizedBox(height: 14),
+      if (full || store.prefs['english'] == true)
+        EnglishText(str(paragraph['en']), article: article),
+      if (store.prefs['translation'] == true)
+        Padding(
+          padding: const EdgeInsets.only(top: 14),
+          child: Text(
+            str(paragraph['zh']),
+            style: const TextStyle(
+              fontSize: 17,
+              height: 1.8,
+              color: Colors.blueGrey,
+            ),
           ),
         ),
-      ),
-    if (store.prefs['homophones'] == true)
-      Padding(
-        padding: const EdgeInsets.only(top: 12),
-        child: Text(
-          str(paragraph['homophone']).isEmpty
-              ? '本段暂无谐音提示'
-              : str(paragraph['homophone']),
-          style: const TextStyle(height: 1.6, color: Colors.brown),
+      if (store.prefs['homophones'] == true)
+        Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: Text(
+            str(paragraph['homophone']).isEmpty
+                ? '本段暂无谐音提示'
+                : str(paragraph['homophone']),
+            style: const TextStyle(height: 1.6, color: Colors.brown),
+          ),
         ),
+      if (!full)
+        actions([
+          action(
+            '朗读本段',
+            () => speak(context, str(paragraph['en'])),
+            icon: Icons.volume_up_outlined,
+          ),
+          action('停止', voice.stop),
+          for (final (i, s) in splitSentences([str(paragraph['en'])]).indexed)
+            TextButton(
+              onPressed: () => speak(context, s),
+              child: Text('听第 ${i + 1} 句'),
+            ),
+        ]),
+    ];
+    if (!full) return panel(content);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: content,
       ),
-    actions([
-      action(
-        '朗读本段',
-        () => speak(context, str(paragraph['en'])),
-        icon: Icons.volume_up_outlined,
-      ),
-      action('停止', voice.stop),
-      for (final (i, s) in splitSentences([str(paragraph['en'])]).indexed)
-        TextButton(
-          onPressed: () => speak(context, s),
-          child: Text('听第 ${i + 1} 句'),
-        ),
-    ]),
-  ]);
+    );
+  }
 }
 
 class ArticlePage extends StatefulWidget {
@@ -80,6 +96,13 @@ class _ArticlePageState extends State<ArticlePage> {
     listenable: store,
     builder: (context, _) => Shell(
       title: str(widget.article['title']),
+      bottomBar: widget.reviewOnly
+          ? action('返回学习', () => Navigator.pop(context), primary: true)
+          : action(
+              '开始学习',
+              () => openPage(context, StudyPage(article: widget.article)),
+              primary: true,
+            ),
       children: [
         heading(
           str(widget.article['title']),
@@ -103,6 +126,16 @@ class _ArticlePageState extends State<ArticlePage> {
             },
           ),
           action(
+            '朗读全文',
+            () => speak(
+              context,
+              rows(
+                widget.article['paragraphs'],
+              ).map((p) => str(p['en'])).join(' '),
+            ),
+          ),
+          action('停止朗读', voice.stop, icon: Icons.stop_rounded),
+          action(
             '句子训练',
             () => openPage(
               context,
@@ -115,19 +148,24 @@ class _ArticlePageState extends State<ArticlePage> {
             ),
           ),
         ]),
-        DropdownButtonFormField<int>(
-          value: paragraph ?? -1,
-          decoration: const InputDecoration(labelText: '原文段落'),
-          items: [
-            const DropdownMenuItem(value: -1, child: Text('完整原文')),
-            for (var i = 0; i < rows(widget.article['paragraphs']).length; i++)
-              DropdownMenuItem(value: i, child: Text('第 ${i + 1} 段')),
-          ],
-          onChanged: (v) {
-            voice.stop();
-            setState(() => paragraph = v == -1 ? null : v);
-          },
-        ),
+        if (widget.reviewOnly)
+          DropdownButtonFormField<int>(
+            value: paragraph ?? -1,
+            decoration: const InputDecoration(labelText: '原文段落'),
+            items: [
+              const DropdownMenuItem(value: -1, child: Text('完整原文')),
+              for (
+                var i = 0;
+                i < rows(widget.article['paragraphs']).length;
+                i++
+              )
+                DropdownMenuItem(value: i, child: Text('第 ${i + 1} 段')),
+            ],
+            onChanged: (v) {
+              voice.stop();
+              setState(() => paragraph = v == -1 ? null : v);
+            },
+          ),
         for (final (i, p) in rows(widget.article['paragraphs']).indexed)
           if (paragraph == null || paragraph == i)
             ParagraphCard(
@@ -136,14 +174,6 @@ class _ArticlePageState extends State<ArticlePage> {
               index: i,
               full: true,
             ),
-        if (widget.reviewOnly)
-          action('返回当前题目', () => Navigator.pop(context), primary: true)
-        else
-          action(
-            '开始学习',
-            () => openPage(context, StudyPage(article: widget.article)),
-            primary: true,
-          ),
       ],
     ),
   );

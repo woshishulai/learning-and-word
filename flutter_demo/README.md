@@ -62,6 +62,14 @@ flutter test
 
 如本机设置代理导致测试连接 localhost 失败，只对测试进程设置 `NO_PROXY=localhost,127.0.0.1,::1` 并清空 `HTTP_PROXY`、`HTTPS_PROXY`。
 
+### 真机卡在启动图标 / VM Service 连接超时
+
+在 VS Code 中打开 `flutter_demo` 目录，使用“词境 Android 本地调试”启动配置；配置只为调试进程绕过代理，不改系统代理。
+先用 `adb devices -l` 检查手机状态。`offline` 时重新连接 USB 并在解锁手机上允许调试，不能仅靠重新编译解决。
+演示给客户时使用 `dist/词境-离线演示-arm64.apk` 的 release 包，无需电脑或 VM Service。覆盖安装保留本机记录，不必卸载应用。
+
+2026-10-15 的 PJV110 排查中，重新连接后原安装包冷启动约 1.9 秒完成首帧，Impeller/Vulkan 正常，因此没有禁用渲染引擎。此前卡住的具体触发原因未能完整复现。
+
 ## 第三方资源
 
 - Noto Sans SC 字体随包内置，来源：https://github.com/google/fonts/tree/main/ofl/notosanssc ，许可证见 `assets/fonts/OFL.txt`。

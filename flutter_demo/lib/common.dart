@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'store.dart';
 
@@ -29,7 +31,7 @@ void openPage(BuildContext context, Widget page) {
   voice.stop();
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (_) => page),
+    CupertinoPageRoute(builder: (_) => page),
   ).then((_) => voice.stop());
 }
 
@@ -120,6 +122,7 @@ Widget assetImage(String path, {double height = 260}) => path.isEmpty
           height: height,
           width: double.infinity,
           fit: BoxFit.cover,
+          cacheWidth: 1080,
           errorBuilder: (_, __, ___) => const SizedBox.shrink(),
         ),
       );
@@ -128,11 +131,15 @@ class Shell extends StatelessWidget {
   final String title;
   final List<Widget> children;
   final bool settings;
+  final ScrollController? controller;
+  final Widget? bottomBar;
   const Shell({
     super.key,
     required this.title,
     required this.children,
     this.settings = true,
+    this.controller,
+    this.bottomBar,
   });
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -147,34 +154,39 @@ class Shell extends StatelessWidget {
           ),
       ],
     ),
+    bottomNavigationBar: bottomBar == null
+        ? null
+        : SafeArea(
+            top: false,
+            minimum: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+            child: bottomBar!,
+          ),
     body: SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1000),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (store.saveError != null)
-                  MaterialBanner(
-                    content: Text(store.saveError!),
-                    actions: [
-                      TextButton(
-                        onPressed: store.save,
-                        child: const Text('重试保存'),
-                      ),
-                    ],
-                  ),
-                ...children,
-                const SizedBox(height: 28),
-                const Text(
-                  '词境 · 在故事里遇见单词\n离线演示 · 本机保存',
-                  style: TextStyle(color: Colors.blueGrey, fontSize: 12),
-                  textAlign: TextAlign.center,
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1000),
+          child: ListView(
+            controller: controller,
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+            children: [
+              if (store.saveError != null)
+                MaterialBanner(
+                  content: Text(store.saveError!),
+                  actions: [
+                    TextButton(
+                      onPressed: store.save,
+                      child: const Text('重试保存'),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ...children,
+              const SizedBox(height: 28),
+              const Text(
+                '词境 · 在故事里遇见单词\n离线演示 · 本机保存',
+                style: TextStyle(color: Colors.blueGrey, fontSize: 12),
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
         ),
       ),
@@ -348,7 +360,8 @@ Future<void> showWord(
   final mnemonic = TextEditingController(
     text: str(word['mnemonic'] ?? word['note']),
   );
-  await speak(context, str(word['term']));
+  // Present the word immediately, even if the device TTS engine is slow.
+  unawaited(speak(context, str(word['term'])));
   if (!context.mounted) return;
   await showModalBottomSheet(
     context: context,

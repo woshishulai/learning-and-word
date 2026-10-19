@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -79,7 +80,7 @@ void main() {
     expect(q['options'], contains(q['answer']));
     expect(sentenceNormal('I like it!'), sentenceNormal(' i like it. '));
   });
-  testWidgets('mobile article preserves full text and paragraph controls', (
+  testWidgets('mobile starts with full article and enters segmented study', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(390, 844);
@@ -88,12 +89,96 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(const MaterialApp(home: HomePage()));
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('阅读全文'));
+    await tester.scrollUntilVisible(find.text('阅读全文'), 250);
+    await tester.pumpAndSettle();
     await tester.tap(find.text('阅读全文'));
     await tester.pumpAndSettle();
-    expect(find.text('原文段落'), findsOneWidget);
-    expect(find.text('第 1 段'), findsWidgets);
+    expect(find.text('原文段落'), findsNothing);
+    expect(find.text('朗读全文'), findsOneWidget);
     expect(find.text('开始学习'), findsOneWidget);
+    await tester.tap(find.text('开始学习'));
+    await tester.pumpAndSettle();
+    expect(find.text('选择情节'), findsOneWidget);
+    await tester.tap(find.widgetWithText(ChoiceChip, '第 2 段'));
+    await tester.pumpAndSettle();
+    expect(
+      store.sessions['study:${store.articles.first['id']}']['paragraph'],
+      1,
+    );
+    await tester.tap(find.widgetWithText(ChoiceChip, '第 1 段'));
+    await tester.pumpAndSettle();
+    expect(
+      store.sessions['study:${store.articles.first['id']}']['paragraph'],
+      0,
+    );
+    expect(tester.takeException(), isNull);
+  });
+  testWidgets(
+    'embedded comprehension advances to words without another route',
+    (tester) async {
+      final article = <String, dynamic>{
+        'id': 'flow',
+        'title': '流程测试',
+        'paragraphs': [
+          {'en': 'A cat.'},
+        ],
+        'words': [
+          {'id': 'cat', 'term': 'cat', 'meaning': '猫'},
+        ],
+        'questions': [
+          {'id': 'q', 'prompt': 'Write cat', 'answer': 'cat'},
+        ],
+      };
+      await tester.pumpWidget(MaterialApp(home: StudyPage(article: article)));
+      await tester.pumpAndSettle();
+      await tester.tap(find.widgetWithText(ChoiceChip, '理解情节'));
+      await tester.pumpAndSettle();
+      expect(find.text('开始 / 继续理解题'), findsNothing);
+      await tester.enterText(find.byType(TextField), 'cat');
+      await tester.pump();
+      await tester.ensureVisible(find.text('确认答案'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('确认答案'));
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('查看结果'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('查看结果'));
+      await tester.pumpAndSettle();
+      expect(store.sessions['study:flow']['stage'], 'words');
+      expect(find.text('发音 / 收藏'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
+  testWidgets('word sheet opens before a slow TTS engine returns', (
+    tester,
+  ) async {
+    final speechReady = Completer<int>();
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+          const MethodChannel('flutter_tts'),
+          (_) => speechReady.future,
+        );
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (context) => Scaffold(
+            body: TextButton(
+              onPressed: () {
+                unawaited(
+                  showWord(context, {'term': 'cat', 'meaning': '猫'}, null),
+                );
+              },
+              child: const Text('点词'),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('点词'));
+    await tester.pumpAndSettle();
+    expect(find.text('收藏 / 保存'), findsOneWidget);
+    speechReady.complete(1);
+    await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
   });
   testWidgets('quiz hides assistance and stores submitted answer', (

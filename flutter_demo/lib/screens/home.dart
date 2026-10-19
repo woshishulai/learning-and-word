@@ -11,42 +11,27 @@ class HomePage extends StatelessWidget {
     builder: (context, _) => Shell(
       title: '词境',
       children: [
-        Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: Image.asset(
-                'assets/images/logo.png',
-                width: 64,
-                height: 64,
-              ),
-            ),
-            const SizedBox(width: 18),
-            Expanded(child: heading('在故事里遇见单词', '读懂一篇文章，记住一段故事。')),
-          ],
-        ),
-        actions([
-          action(
+        for (final entry in <(String, String, IconData, Widget)>[
+          (
             '文章书架',
-            () => openPage(context, const LibraryPage()),
-            icon: Icons.auto_stories,
+            '选择学段 · 进入文章',
+            Icons.auto_stories_outlined,
+            const LibraryPage(),
           ),
-          action(
-            '我的生词本',
-            () => openPage(context, const NotebookPage()),
-            icon: Icons.bookmarks_outlined,
+          ('我的生词本', '按文章整理收藏', Icons.bookmarks_outlined, const NotebookPage()),
+          ('重点词库', '查看掌握情况', Icons.abc, const VocabularyPage()),
+          ('复习中心', '巩固今天到期的词', Icons.history, const ReviewPage()),
+        ])
+          Card(
+            child: ListTile(
+              leading: Icon(entry.$3, color: green),
+              title: Text(entry.$1),
+              subtitle: Text(entry.$2),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => openPage(context, entry.$4),
+            ),
           ),
-          action(
-            '重点词库',
-            () => openPage(context, const VocabularyPage()),
-            icon: Icons.abc,
-          ),
-          action(
-            '复习中心',
-            () => openPage(context, const ReviewPage()),
-            icon: Icons.history,
-          ),
-        ]),
+        heading('今天，从一个故事开始。', '在情境中理解，在回忆中记住。'),
         panel([
           assetImage(str(store.articles.first['cover'])),
           heading(
@@ -60,10 +45,6 @@ class HomePage extends StatelessWidget {
               () =>
                   openPage(context, ArticlePage(article: store.articles.first)),
               primary: true,
-            ),
-            action(
-              '继续情景学习',
-              () => openPage(context, StudyPage(article: store.articles.first)),
             ),
           ]),
         ]),

@@ -103,13 +103,14 @@ class DemoStore extends ChangeNotifier {
     });
     notifyListeners();
     pending = pending.catchError((_) {}).then((_) async {
+      final previousError = saveError;
       try {
         if (!await disk.setString(storageKey, data)) throw StateError('写入失败');
         saveError = null;
       } catch (_) {
         saveError = '本机保存失败，请不要关闭应用，并重试保存。';
       }
-      notifyListeners();
+      if (saveError != previousError) notifyListeners();
     });
     return pending;
   }

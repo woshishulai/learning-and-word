@@ -8,6 +8,9 @@ class QuizPage extends StatefulWidget {
   final List<Data> questions;
   final Data? article;
   final String? sessionKey;
+  final bool embedded;
+  final VoidCallback? onComplete;
+  final VoidCallback? onAdvance;
   const QuizPage({
     super.key,
     required this.title,
@@ -15,12 +18,16 @@ class QuizPage extends StatefulWidget {
     this.mode = 'free',
     this.article,
     this.sessionKey,
+    this.embedded = false,
+    this.onComplete,
+    this.onAdvance,
   });
   @override
   State<QuizPage> createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
+  final scroll = ScrollController();
   final input = TextEditingController();
   int index = 0;
   String selected = '';
@@ -49,6 +56,7 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   void dispose() {
+    scroll.dispose();
     input.dispose();
     voice.stop();
     super.dispose();
@@ -119,19 +127,30 @@ class _QuizPageState extends State<QuizPage> {
       assisted = false;
     });
     persist();
+    if (finished) widget.onComplete?.call();
+    widget.onAdvance?.call();
+    if (scroll.hasClients) scroll.jumpTo(0);
   }
+
+  Widget frame({required String title, required List<Widget> children}) =>
+      widget.embedded
+      ? Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: children,
+        )
+      : Shell(title: title, controller: scroll, children: children);
 
   @override
   Widget build(BuildContext context) {
     if (questions.isEmpty) {
-      return Shell(title: widget.title, children: [heading('暂无可练习题目')]);
+      return frame(title: widget.title, children: [heading('暂无可练习题目')]);
     }
     if (finished) {
       final wrong = answers
           .where((a) => a['correct'] != true)
           .map((a) => Map<String, dynamic>.from(a['question']))
           .toList();
-      return Shell(
+      return frame(
         title: widget.title,
         children: [
           heading(
@@ -169,14 +188,17 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   primary: true,
                 ),
-              action('返回上一级', () => Navigator.pop(context)),
+              if (widget.embedded)
+                action('继续下一步', widget.onComplete, primary: true)
+              else
+                action('返回上一级', () => Navigator.pop(context)),
             ]),
           ]),
         ],
       );
     }
     final options = (question['options'] as List? ?? []).map(str).toList();
-    return Shell(
+    return frame(
       title: widget.title,
       children: [
         heading(widget.title, '第 ${index + 1} / ${questions.length} 题'),

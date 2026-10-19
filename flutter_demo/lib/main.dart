@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/semantics.dart';
 import 'common.dart';
 import 'store.dart';
 import 'pages.dart';
 
-late final SemanticsHandle appSemantics;
+SemanticsHandle? appSemantics;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  appSemantics = WidgetsBinding.instance.ensureSemantics();
+  // Browser controls need an explicit semantics tree. Mobile accessibility
+  // is managed by the platform; don't force every word into it unconditionally.
+  if (kIsWeb) appSemantics = WidgetsBinding.instance.ensureSemantics();
   store = DemoStore();
   runApp(const WordscapeApp());
 }

@@ -13,6 +13,7 @@ class StudyPage extends StatefulWidget {
 }
 
 class _StudyPageState extends State<StudyPage> {
+  final scroll = ScrollController();
   int lessonIndex = 0, paragraph = 0, wordIndex = 0;
   String stage = 'read';
   String get key => 'study:${widget.article['id']}';
@@ -61,6 +62,13 @@ class _StudyPageState extends State<StudyPage> {
     voice.stop();
     setState(fn);
     save();
+    if (scroll.hasClients) scroll.jumpTo(0);
+  }
+
+  @override
+  void dispose() {
+    scroll.dispose();
+    super.dispose();
   }
 
   List<Data> get questions => lessons.isEmpty
@@ -71,8 +79,15 @@ class _StudyPageState extends State<StudyPage> {
     listenable: store,
     builder: (context, _) => Shell(
       title: '情景学习',
+      controller: scroll,
       children: [
-        heading(str(widget.article['title']), '可自由选择段落和步骤，学习位置自动保存在本机。'),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Text(
+            '${widget.article['title']} · 进度已保存在本机',
+            style: const TextStyle(color: Colors.blueGrey, fontSize: 12),
+          ),
+        ),
         if (lessons.isNotEmpty)
           DropdownButtonFormField<int>(
             value: lessonIndex,
@@ -91,19 +106,29 @@ class _StudyPageState extends State<StudyPage> {
               stage = 'read';
             }),
           ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              for (final e in {
+                'read': '读故事',
+                'understand': '理解情节',
+                'words': '认识单词',
+                'practice': '主动回忆',
+                'result': '学习收获',
+              }.entries)
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: ChoiceChip(
+                    label: Text(e.value),
+                    selected: stage == e.key,
+                    onSelected: (_) => change(() => stage = e.key),
+                  ),
+                ),
+            ],
+          ),
+        ),
         actions([
-          for (final e in {
-            'read': '读故事',
-            'understand': '理解情节',
-            'words': '认识单词',
-            'practice': '主动回忆',
-            'result': '学习收获',
-          }.entries)
-            ChoiceChip(
-              label: Text(e.value),
-              selected: stage == e.key,
-              onSelected: (_) => change(() => stage = e.key),
-            ),
           action(
             '回看完整原文',
             () => openPage(
@@ -113,15 +138,14 @@ class _StudyPageState extends State<StudyPage> {
           ),
         ]),
         if (stage == 'read') ...[
-          DropdownButtonFormField<int>(
-            value: paragraph,
-            decoration: const InputDecoration(labelText: '选择段落'),
-            items: [
-              for (var i = 0; i < paragraphs.length; i++)
-                DropdownMenuItem(value: i, child: Text('第 ${i + 1} 段')),
-            ],
-            onChanged: (v) => change(() => paragraph = v!),
-          ),
+          actions([
+            for (var i = 0; i < paragraphs.length; i++)
+              ChoiceChip(
+                label: Text('第 ${i + 1} 段'),
+                selected: paragraph == i,
+                onSelected: (_) => change(() => paragraph = i),
+              ),
+          ]),
           ParagraphCard(
             paragraph: paragraphs[paragraph],
             article: widget.article,
@@ -144,24 +168,27 @@ class _StudyPageState extends State<StudyPage> {
           ]),
         ],
         if (stage == 'understand')
-          panel([
-            heading('先读懂，再记住', '${questions.length} 道理解题'),
-            action(
-              questions.isEmpty ? '本篇暂无理解题' : '开始 / 继续理解题',
-              questions.isEmpty
-                  ? null
-                  : () => openPage(
-                      context,
-                      QuizPage(
-                        title: '理解情节',
-                        questions: questions,
-                        article: widget.article,
-                        sessionKey: '$key:$lessonIndex:understand',
-                      ),
-                    ),
-              primary: true,
-            ),
-          ]),
+          questions.isEmpty
+              ? panel([
+                  const Text('本篇暂无理解题'),
+                  action(
+                    '继续认识单词',
+                    () => change(() => stage = 'words'),
+                    primary: true,
+                  ),
+                ])
+              : QuizPage(
+                  key: ValueKey('$key:$lessonIndex:understand'),
+                  embedded: true,
+                  onAdvance: () {
+                    if (scroll.hasClients) scroll.jumpTo(0);
+                  },
+                  onComplete: () => change(() => stage = 'words'),
+                  title: '理解情节',
+                  questions: questions,
+                  article: widget.article,
+                  sessionKey: '$key:$lessonIndex:understand',
+                ),
         if (stage == 'words') ...[
           if (words.isEmpty)
             panel([const Text('本篇未配置重点词。')])
@@ -214,25 +241,21 @@ class _StudyPageState extends State<StudyPage> {
             ]),
         ],
         if (stage == 'practice')
-          panel([
-            heading('主动回忆', '默认隐藏提示，先试着自己想起来。'),
-            action(
-              '开始 / 继续回忆题',
-              () => openPage(
-                context,
-                QuizPage(
-                  title: '主动回忆',
-                  questions: lessons.isEmpty
-                      ? store.wordQuiz(words, 'spelling')
-                      : rows(lesson['practice']),
-                  article: widget.article,
-                  mode: 'learn',
-                  sessionKey: '$key:$lessonIndex:practice',
-                ),
-              ),
-              primary: true,
-            ),
-          ]),
+          QuizPage(
+            key: ValueKey('$key:$lessonIndex:practice'),
+            embedded: true,
+            onAdvance: () {
+              if (scroll.hasClients) scroll.jumpTo(0);
+            },
+            onComplete: () => change(() => stage = 'result'),
+            title: '主动回忆',
+            questions: lessons.isEmpty
+                ? store.wordQuiz(words, 'spelling')
+                : rows(lesson['practice']),
+            article: widget.article,
+            mode: 'learn',
+            sessionKey: '$key:$lessonIndex:practice',
+          ),
         if (stage == 'result')
           panel([
             heading('学习收获'),
